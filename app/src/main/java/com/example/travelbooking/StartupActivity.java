@@ -38,7 +38,7 @@ public class StartupActivity extends AppCompatActivity {
                 button.setText("Let's start");
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, onBoarding3Fragment).addToBackStack(null).commit();
             } else {
-                Intent i = new Intent(StartupActivity.this, MainActivity.class);
+                Intent i = new Intent(StartupActivity.this, WelcomeActivity.class);
                 startActivity(i);
                 finish();
             }
