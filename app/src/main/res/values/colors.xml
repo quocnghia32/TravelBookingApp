@@ -3,4 +3,20 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="green700">#01635D</color>
+    <color name="green500">#089083</color>
+    <color name="green50">#B7DFDB</color>
+    <color name="peach300">#FEA36B</color>
+    <color name="peach50">#FFDDA2</color>
+    <color name="alert_link">#3EAEFF</color>
+    <color name="alert_success">#09C933</color>
+    <color name="alert_warning">#FF941C</color>
+    <color name="alert_error">#FF3636</color>
+    <color name="text_primary">#050505</color>
+    <color name="text_secondary">#727272</color>
+    <color name="text_white">#FFFFFF</color>
+    <color name="ui_dark">#050505</color>
+    <color name="ui_dark30">#4D050505</color>
+    <color name="ui_gray">#727272</color>
+    <color name="ui_light">#FFFFFF</color>
+    <color name="ui_light30">#4DFFFFFF</color>
 </resources>
