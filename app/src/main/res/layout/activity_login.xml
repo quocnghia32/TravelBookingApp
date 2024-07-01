@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/ui_dark15"
-    tools:context=".MainActivity"
+    tools:context=".LoginActivity"
     tools:ignore="HardcodedText">
 
     <LinearLayout
@@ -90,7 +90,8 @@
             <Button
                 android:id="@+id/login_button"
                 style="@style/buttonStyle"
-                android:layout_width="353dp"
+                android:layout_width="match_parent"
+                android:layout_margin="10dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"

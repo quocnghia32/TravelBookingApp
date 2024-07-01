@@ -35,11 +35,13 @@ public class LoginActivity extends AppCompatActivity {
         Button loginButton = findViewById(R.id.login_button);
         EditText usernameEdit = findViewById(R.id.username);
         EditText passwordEdit = findViewById(R.id.password);
+
         loginButton.setOnClickListener(v -> {
             username = usernameEdit.getText().toString();
             password = passwordEdit.getText().toString();
             if (username.equals("admin") && password.equals("admin")) {
                 Intent i = new Intent(LoginActivity.this, MainActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(i);
                 finish();
             } else {
