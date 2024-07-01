@@ -1,6 +1,9 @@
 package com.example.travelbooking;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,5 +23,11 @@ public class WelcomeActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        Button curButton = findViewById(R.id.btnLogin);
+        curButton.setOnClickListener(v -> {
+            Intent i = new Intent(WelcomeActivity.this, LoginActivity.class);
+            startActivity(i);
+        });
     }
+
 }

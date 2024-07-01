@@ -16,6 +16,7 @@
     <color name="text_white">#FFFFFF</color>
     <color name="ui_dark">#050505</color>
     <color name="ui_dark30">#4D050505</color>
+    <color name="ui_dark15">#26050505</color>
     <color name="ui_gray">#727272</color>
     <color name="ui_light">#FFFFFF</color>
     <color name="ui_light30">#4DFFFFFF</color>

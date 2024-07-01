@@ -20,12 +20,6 @@
             android:name=".WelcomeActivity"
             android:exported="false" />
         <activity
-            android:name=".Startup3Activity"
-            android:exported="false" />
-        <activity
-            android:name=".Startup2Activity"
-            android:exported="false" />
-        <activity
             android:name=".StartupActivity"
             android:exported="false" />
         <activity
@@ -40,6 +34,10 @@
         <activity
             android:name=".MainActivity"
             android:exported="true" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
