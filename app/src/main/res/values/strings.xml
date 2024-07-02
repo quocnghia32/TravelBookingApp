@@ -1,5 +1,25 @@
 <resources>
     <string name="app_name">Travel Booking</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="destinations">
+        <item>New York (NYC)</item>
+        <item>London (LDN)</item>
+        <item>Los Angeles (LAX)</item>
+        <item>Chicago (ORD)</item>
+        <item>Miami (MIA)</item>
+        <item>San Francisco (SFO)</item>
+        <item>Houston (IAH)</item>
+        <item>Atlanta (ATL)</item>
+        <item>Dallas (DFW)</item>
+        <item>Denver (DEN)</item>
+        <item>Seattle (SEA)</item>
+        <item>Las Vegas (LAS)</item>
+        <item>Boston (BOS)</item>
+        <item>Philadelphia (PHL)</item>
+        <item>Washington, D.C. (IAD)</item>
+        <item>Phoenix (PHX)</item>
+        <item>Orlando (MCO)</item>
+        <item>Minneapolis (MSP)</item>
+        <item>Detroit (DTW)</item>
+    </string-array>
 </resources>

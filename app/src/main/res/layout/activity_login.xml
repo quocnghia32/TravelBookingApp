@@ -23,9 +23,9 @@
             android:id="@+id/back_button"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:layout_gravity="start"
             android:background="@drawable/back_button"
             android:backgroundTint="@color/black"
-            android:layout_gravity="start"
             android:scaleType="center" />
 
         <TextView
@@ -52,8 +52,8 @@
         android:id="@+id/card_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="-20dp"
         android:layout_below="@id/textWelcome"
+        android:layout_marginBottom="-20dp"
         android:backgroundTint="@color/screen_background"
         app:cardCornerRadius="38dp">
 
@@ -61,39 +61,54 @@
             android:layout_width="match_parent"
             android:layout_height="810dp"
             android:orientation="vertical"
-            android:padding="28dp">
+            android:padding="20dp">
 
-            <EditText
-                android:id="@+id/username"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:background="@drawable/edittext_layout"
-                android:gravity="center_vertical"
-                android:hint="Email"
-                android:inputType="textEmailAddress"
-                android:padding="10dp"
-                android:textColor="@color/text_secondary" />
+                android:textColorHint="@color/ui_gray"
+                >
+                <EditText
+                    android:id="@+id/username"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:background="@drawable/edittext_layout"
+                    android:gravity="center_vertical"
+                    android:hint="Email"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/text_secondary"
+                    android:textColorHint="@color/ui_gray" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <EditText
-                android:id="@+id/password"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:background="@drawable/edittext_layout"
-                android:gravity="center_vertical"
-                android:hint="Password"
-                android:inputType="textPassword"
-                android:padding="10dp"
-                android:textColor="@color/text_secondary" />
+                android:layout_marginBottom="15dp"
+                android:textColorHint="@color/ui_gray"
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="@color/black">
+
+                <EditText
+                    android:id="@+id/password"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:background="@drawable/edittext_layout"
+                    android:gravity="center_vertical"
+                    android:hint="Password"
+                    android:inputType="textPassword"
+                    android:textColor="@color/text_secondary" />
+
+            </com.google.android.material.textfield.TextInputLayout>
 
             <Button
                 android:id="@+id/login_button"
                 style="@style/buttonStyle"
                 android:layout_width="match_parent"
-                android:layout_margin="10dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
+                android:layout_margin="10dp"
                 android:layout_marginTop="20dp"
                 android:text="Login"
                 android:textSize="20sp" />
@@ -101,8 +116,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                >
+                android:layout_marginTop="10dp">
 
                 <TextView
                     android:id="@+id/textView2"
@@ -140,7 +154,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="160dp"
+                android:layout_marginTop="120dp"
                 android:orientation="horizontal">
 
                 <View

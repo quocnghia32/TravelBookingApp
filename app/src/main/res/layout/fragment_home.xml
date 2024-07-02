@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/screen_background"
+    android:padding="10dp"
     tools:ignore="hardcodedText"
     tools:context=".HomeFragment">
 
@@ -76,12 +77,11 @@
 
                 <ImageButton
                     android:id="@+id/trips_button"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
                     android:layout_marginTop="-30dp"
                     android:background="@drawable/home_trips"
                     android:scaleType="center"
-
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -96,7 +96,7 @@
                     android:layout_marginTop="5dp"
                     android:text="Trips"
                     android:textColor="@color/black"
-                    android:textSize="18sp" />
+                    android:textSize="15sp" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -108,8 +108,8 @@
 
                 <ImageButton
                     android:id="@+id/hotel_button"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
                     android:layout_marginTop="-30dp"
                     android:background="@drawable/home_hotel"
                     android:scaleType="center"
@@ -125,9 +125,9 @@
                     app:layout_constraintEnd_toEndOf="@+id/hotel_button"
                     android:fontFamily="@font/poppins"
                     android:layout_marginTop="5dp"
-                    android:text="Trips"
+                    android:text="Hotel"
                     android:textColor="@color/black"
-                    android:textSize="18sp" />
+                    android:textSize="15sp" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -138,8 +138,8 @@
 
                 <ImageButton
                     android:id="@+id/transport_button"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
                     android:layout_marginTop="-30dp"
                     android:background="@drawable/home_transport"
                     android:scaleType="center"
@@ -159,7 +159,7 @@
                     android:layout_marginTop="5dp"
                     android:text="Transport"
                     android:textColor="@color/black"
-                    android:textSize="18sp" />
+                    android:textSize="15sp" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -170,8 +170,8 @@
 
                 <ImageButton
                     android:id="@+id/event_button"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
                     android:layout_marginTop="-30dp"
                     android:background="@drawable/home_event"
                     android:scaleType="center"
@@ -189,7 +189,7 @@
                     android:layout_marginTop="5dp"
                     android:text="Events"
                     android:textColor="@color/black"
-                    android:textSize="18sp" />
+                    android:textSize="15sp" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -28,13 +28,13 @@ public class StartupActivity extends AppCompatActivity {
         onBoarding3Fragment onBoarding3Fragment = new onBoarding3Fragment();
 
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, onBoarding1Fragment).addToBackStack(null).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, onBoarding1Fragment).commit();
 
         Button button = findViewById(R.id.startButton);
         button.setOnClickListener(v -> {
-            if (getSupportFragmentManager().getBackStackEntryCount() == 1) {
+            if (getSupportFragmentManager().getBackStackEntryCount() == 0) {
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, onBoarding2Fragment).addToBackStack(null).commit();
-            } else if (getSupportFragmentManager().getBackStackEntryCount() == 2){
+            } else if (getSupportFragmentManager().getBackStackEntryCount() == 1){
                 button.setText("Let's start");
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, onBoarding3Fragment).addToBackStack(null).commit();
             } else {
@@ -47,10 +47,8 @@ public class StartupActivity extends AppCompatActivity {
         //click back system button
         getSupportFragmentManager().addOnBackStackChangedListener(() -> {
             if (getSupportFragmentManager().getBackStackEntryCount() == 0) {
-                super.onBackPressed();
-            } else if (getSupportFragmentManager().getBackStackEntryCount() == 1) {
                 button.setText("Next");
-            } else if (getSupportFragmentManager().getBackStackEntryCount() == 2) {
+            } else if (getSupportFragmentManager().getBackStackEntryCount() == 1) {
                 button.setText("Next");
             } else {
                 button.setText("Let's start");
