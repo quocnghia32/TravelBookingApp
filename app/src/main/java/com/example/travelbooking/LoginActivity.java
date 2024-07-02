@@ -39,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(v -> {
             username = usernameEdit.getText().toString();
             password = passwordEdit.getText().toString();
-            if (username.equals("admin") && password.equals("admin")) {
+            if (username.equals("a") && password.equals("a")) {
                 Intent i = new Intent(LoginActivity.this, MainActivity.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(i);
