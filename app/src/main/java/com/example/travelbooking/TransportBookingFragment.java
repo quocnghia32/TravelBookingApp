@@ -50,8 +50,9 @@ public class TransportBookingFragment extends Fragment {
         AutoCompleteTextView autoCompleteTextView2 = getView().findViewById(R.id.ToSelection);
         String[] arrayList = getResources().getStringArray(R.array.destinations);
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getContext(), R.layout.dropdown_item, arrayList);
+        ArrayAdapter<String> arrayAdapter2 = new ArrayAdapter<>(getContext(), R.layout.dropdown_item, arrayList);
         autoCompleteTextView.setAdapter(arrayAdapter);
-        autoCompleteTextView2.setAdapter(arrayAdapter);
+        autoCompleteTextView2.setAdapter(arrayAdapter2);
 
         ImageButton back = getView().findViewById(R.id.back_button);
         ImageButton swap = getView().findViewById(R.id.swap_button);
@@ -69,6 +70,7 @@ public class TransportBookingFragment extends Fragment {
             pos = arrayAdapter.getPosition(temp);
             if (pos == -1) pos = 1;
             autoCompleteTextView.setText(arrayList[pos].toString(), false);
+            resetArray();
         });
 
         //Date Picker
@@ -110,6 +112,17 @@ public class TransportBookingFragment extends Fragment {
 
 
     }
+
+    private void resetArray() {
+        AutoCompleteTextView autoCompleteTextView = getView().findViewById(R.id.FromSelection);
+        AutoCompleteTextView autoCompleteTextView2 = getView().findViewById(R.id.ToSelection);
+        String[] arrayList = getResources().getStringArray(R.array.destinations);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getContext(), R.layout.dropdown_item, arrayList);
+        ArrayAdapter<String> arrayAdapter2 = new ArrayAdapter<>(getContext(), R.layout.dropdown_item, arrayList);
+        autoCompleteTextView.setAdapter(arrayAdapter);
+        autoCompleteTextView2.setAdapter(arrayAdapter2);
+    }
+
     private void hideKeyboard(View view) {
         InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
