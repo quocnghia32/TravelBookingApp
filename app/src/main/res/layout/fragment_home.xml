@@ -20,6 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_semibold"
+            android:textColor="@color/text_primary"
             android:layout_marginTop="20dp"
             android:text="Explore the beautiful world!"
             android:textSize="20sp" />
@@ -28,8 +29,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="15dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginStart="20dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
             android:background="@drawable/edittext_layout"
 
             android:orientation="horizontal">
@@ -62,7 +63,7 @@
             android:layout_height="match_parent"
             android:fontFamily="@font/poppins_semibold"
             android:text="Booking Serivces"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="30dp"
             android:textSize="16sp"
             />
         <LinearLayout

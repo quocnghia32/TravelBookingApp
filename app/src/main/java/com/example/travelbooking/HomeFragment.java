@@ -2,6 +2,7 @@ package com.example.travelbooking;
 
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -11,6 +12,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -74,6 +77,13 @@ public class HomeFragment extends Fragment {
                 String text = editText.getText().toString();
                 Toast.makeText(getContext(), text, Toast.LENGTH_SHORT).show();
             }
+        });
+        ImageButton transport = view.findViewById(R.id.transport_button);
+        transport.setOnClickListener(v -> {
+            BottomNavigationView bottomNavigationView;
+            bottomNavigationView = (BottomNavigationView) ((MainActivity) getActivity()).findViewById(R.id.bottomNavigationView);
+            bottomNavigationView.setSelectedItemId(R.id.BookingB);
+            ((MainActivity) getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new TransportBookingFragment()).addToBackStack(null).commit();
         });
         return view;
     }

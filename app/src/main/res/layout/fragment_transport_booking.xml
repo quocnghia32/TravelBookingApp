@@ -1,88 +1,263 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="wrap_content"
     android:padding="10dp"
-    tools:context=".TransportBookingFragment">
+    tools:context=".TransportBookingFragment"
+    tools:ignore="hardcodedText">
 
     <LinearLayout
         android:id="@+id/textWelcome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:orientation="vertical">
+
         <FrameLayout
             android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/poppins_bold"
+                android:gravity="center"
+                android:text="Transport Booking"
+                android:textSize="20sp" />
+
+            <ImageButton
+                android:id="@+id/back_button"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="start"
+                android:background="@drawable/back_button"
+                android:backgroundTint="@color/black"
+                android:scaleType="center" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            >
+            android:orientation="vertical">
 
 
-        <ImageButton
-            android:id="@+id/back_button"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_gravity="start"
-            android:background="@drawable/back_button"
-            android:backgroundTint="@color/black"
-            android:scaleType="center" />
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="10dp"
+                android:hint="From"
+                app:boxBackgroundColor="@color/white"
+                app:boxCornerRadiusBottomEnd="15dp"
+                app:boxCornerRadiusBottomStart="15dp"
+                app:boxCornerRadiusTopEnd="15dp"
+                app:boxCornerRadiusTopStart="15dp"
+                app:endIconTint="@color/white">
+
+                <AutoCompleteTextView
+                    android:id="@+id/FromSelection"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:hint="To"
+                app:boxBackgroundColor="@color/white"
+                app:boxCornerRadiusBottomEnd="15dp"
+                app:boxCornerRadiusBottomStart="15dp"
+                app:boxCornerRadiusTopEnd="15dp"
+                app:boxCornerRadiusTopStart="15dp"
+                app:endIconTint="@color/white">
+
+                <AutoCompleteTextView
+                    android:id="@+id/ToSelection"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <ImageButton
+                android:id="@+id/swap_button"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_gravity="end"
+                android:layout_marginTop="-87dp"
+                android:layout_marginEnd="50dp"
+                android:background="@null"
+                android:scaleType="fitCenter"
+                android:src="@drawable/swap" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/FromDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edittext_layout"
+                    android:clickable="true"
+                    android:fontFamily="@font/poppins"
+                    android:paddingStart="20dp"
+                    android:paddingTop="25dp"
+                    android:paddingBottom="5dp"
+                    android:textColor="@color/ui_dark"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:paddingStart="15dp"
+                    android:paddingTop="7dp"
+                    android:text="Departure"
+                    android:textColor="@color/ui_gray"
+                    android:textSize="11sp" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/ToDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edittext_layout"
+                    android:clickable="true"
+                    android:fontFamily="@font/poppins"
+                    android:paddingStart="20dp"
+                    android:paddingTop="25dp"
+                    android:paddingBottom="5dp"
+                    android:textColor="@color/ui_dark"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:paddingStart="15dp"
+                    android:paddingTop="7dp"
+                    android:text="Return"
+                    android:textColor="@color/ui_gray"
+                    android:textSize="11sp" />
+            </FrameLayout>
+        </LinearLayout>
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Transport Booking"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
             android:fontFamily="@font/poppins_bold"
-            android:textSize="20sp"
-            android:gravity="center" />
-        </FrameLayout>
-        <com.google.android.material.textfield.TextInputLayout
+            android:text="Passenger &amp; Luggage"
+            android:textColor="@color/text_secondary"
+            android:textSize="16sp" />
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="From"
-            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-            app:boxCornerRadiusBottomEnd="30dp"
-            app:boxCornerRadiusBottomStart="30dp"
-            app:boxCornerRadiusTopEnd="30dp"
-            app:boxCornerRadiusTopStart="30dp"
-            app:boxBackgroundColor="@color/white"
-            app:endIconTint="@color/white"
-            android:layout_margin="20dp"
-            >
+            android:gravity="start"
+            android:orientation="horizontal">
 
-            <AutoCompleteTextView
-                android:id="@+id/FromSelection"
+            <EditText
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:scaleX="0.8"
+                android:scaleY="0.8"
+                android:drawablePadding="5dp"
+                android:backgroundTint="@color/focus_tint_layout"
+                android:drawableStart="@drawable/cus_icon"
+                android:drawableTint="@color/focus_tint_layout"
+                android:fontFamily="@font/poppins"
+                android:inputType="numberDecimal"
+                android:maxLength="2"
+                android:textColor="@color/text_secondary"
+                android:textSize="25sp" />
 
-                 />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:scaleX="0.8"
+                android:scaleY="0.8"
+                android:drawablePadding="5dp"
+                android:backgroundTint="@color/focus_tint_layout"
+                android:drawableStart="@drawable/child_icon"
+                android:drawableTint="@color/focus_tint_layout"
+                android:fontFamily="@font/poppins"
+                android:inputType="numberDecimal"
+                android:maxLength="2"
+                android:textColor="@color/text_secondary"
+                android:textSize="25sp" />
 
-        </com.google.android.material.textfield.TextInputLayout>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:scaleX="0.8"
+                android:scaleY="0.8"
+                android:backgroundTint="@color/focus_tint_layout"
+                android:drawableStart="@drawable/pet_icon"
+                android:drawablePadding="5dp"
+                android:drawableTint="@color/focus_tint_layout"
+                android:fontFamily="@font/poppins"
+                android:inputType="numberDecimal"
+                android:maxLength="2"
+                android:textColor="@color/text_secondary"
+                android:textSize="25sp" />
 
-        <com.google.android.material.textfield.TextInputLayout
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:scaleX="0.8"
+                android:scaleY="0.8"
+                android:backgroundTint="@color/focus_tint_layout"
+                android:drawableStart="@drawable/luggage_icon"
+                android:drawablePadding="5dp"
+                android:drawableTint="@color/focus_tint_layout"
+                android:fontFamily="@font/poppins"
+                android:inputType="numberDecimal"
+                android:maxLength="2"
+                android:textColor="@color/text_secondary"
+                android:textSize="25sp" />
+        </LinearLayout>
+
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="To"
-            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-            app:boxCornerRadiusBottomEnd="30dp"
-            app:boxCornerRadiusBottomStart="30dp"
-            app:boxCornerRadiusTopEnd="30dp"
-            app:boxCornerRadiusTopStart="30dp"
-            app:boxBackgroundColor="@color/white"
-            app:endIconTint="@color/white"
-            android:layout_margin="20dp"
-            >
-
-            <AutoCompleteTextView
-                android:id="@+id/ToSelection"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                 />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
+            android:layout_marginTop="25dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Class"
+            android:textColor="@color/text_secondary"
+            android:textSize="16sp" />
 
 
     </LinearLayout>

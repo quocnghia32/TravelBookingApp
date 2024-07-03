@@ -64,7 +64,6 @@ public class BookingFragment extends Fragment {
         ImageButton transport = getView().findViewById(R.id.booking_transport);
         transport.setOnClickListener(v -> {
             ((MainActivity) getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new TransportBookingFragment()).addToBackStack(null).commit();
-            Toast.makeText(getContext(), "Transport Booking", Toast.LENGTH_SHORT).show();
         });
     }
 
