@@ -8,6 +8,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,17 +17,18 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.travelbooking.databinding.ActivityMainBinding;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 public class MainActivity extends AppCompatActivity {
-
-    ActivityMainBinding binding;
+    FragmentManager fragmentManager = getSupportFragmentManager();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        setContentView(R.layout.activity_main);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -34,7 +36,12 @@ public class MainActivity extends AppCompatActivity {
         });
 
         replaceFragment(new HomeFragment());
-        binding.bottomNavigationView.setOnItemSelectedListener(item -> {
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            for (int i = fragmentManager.getBackStackEntryCount(); i > 0; i--) {
+                fragmentManager.popBackStackImmediate();
+            }
+            Toast.makeText(this, "Selected: " + item.getTitle(), Toast.LENGTH_SHORT).show();
             if (item.getItemId() == R.id.HomeB) {
                 replaceFragment(new HomeFragment());
             } else if (item.getItemId() == R.id.BookingB) {
