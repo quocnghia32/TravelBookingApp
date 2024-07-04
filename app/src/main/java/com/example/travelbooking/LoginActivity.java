@@ -1,5 +1,6 @@
 package com.example.travelbooking;
 
+import android.database.Cursor;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -18,6 +19,7 @@ import android.widget.EditText;
 public class LoginActivity extends AppCompatActivity {
     public String username;
     public String password;
+    MyDatabaseHelper db = new MyDatabaseHelper(this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,19 +30,21 @@ public class LoginActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
         ImageButton backButton = findViewById(R.id.back_button);
-        backButton.setOnClickListener(v -> {
-            finish();
-        });
         Button loginButton = findViewById(R.id.login_button);
         EditText usernameEdit = findViewById(R.id.username);
         EditText passwordEdit = findViewById(R.id.password);
 
+        backButton.setOnClickListener(v -> {
+            finish();
+        });
         loginButton.setOnClickListener(v -> {
             username = usernameEdit.getText().toString();
             password = passwordEdit.getText().toString();
-            if (username.equals("a") && password.equals("a")) {
+            if (check(username,password)) {
                 Intent i = new Intent(LoginActivity.this, MainActivity.class);
+                i.putExtra("username", username);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(i);
                 finish();
@@ -48,5 +52,9 @@ public class LoginActivity extends AppCompatActivity {
                 Toast.makeText(LoginActivity.this, "Invalid username or password", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+    private boolean check(String username, String password) {
+        Cursor cursor = db.readByUsernamePassword(username, password);
+        return cursor.getCount() > 0;
     }
 }

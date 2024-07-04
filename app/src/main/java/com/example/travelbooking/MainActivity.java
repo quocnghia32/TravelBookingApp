@@ -1,6 +1,9 @@
 package com.example.travelbooking;
 
 import android.content.Context;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.util.Log;
@@ -24,6 +27,9 @@ import androidx.fragment.app.FragmentManager;
 
 public class MainActivity extends AppCompatActivity {
     FragmentManager fragmentManager = getSupportFragmentManager();
+    User user;
+    String username;
+    MyDatabaseHelper db = new MyDatabaseHelper(this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,8 +41,18 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
+        // Get the user from the intent
+        if (getIntent().hasExtra("username")) {
+            username = getIntent().getStringExtra("username");
+            Toast.makeText(this, "Welcome " + username, Toast.LENGTH_SHORT).show();
+            getUser();
+            Cursor cursor = db.readByUsername(username);
+        }
+        // Set the home fragment as the default fragment
         replaceFragment(new HomeFragment());
+
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+
         bottomNavigationView.setOnItemSelectedListener(item -> {
             for (int i = fragmentManager.getBackStackEntryCount(); i > 0; i--) {
                 fragmentManager.popBackStackImmediate();
@@ -74,5 +90,23 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         return super.dispatchTouchEvent(event);
+    }
+    private void getUser() {
+        Cursor cursor = db.readByUsername(username);
+        if (cursor.getCount() > 0) {
+            cursor.moveToFirst();
+            int id = cursor.getInt(0);
+            String firstName = cursor.getString(1);
+            String lastName = cursor.getString(2);
+            String phone = cursor.getString(3);
+            String email = cursor.getString(4);
+            String username = cursor.getString(5);
+            String password = cursor.getString(6);
+            byte[] image = cursor.getBlob(7);
+            user = new User(firstName, lastName, phone, email, username, password, image);
+        } else {
+            Toast.makeText(this, "No user found", Toast.LENGTH_SHORT).show();
+        }
+
     }
 }

@@ -28,7 +28,6 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_gravity="start"
-
                 android:background="@drawable/back_button"
                 android:backgroundTint="@color/black"
                 android:scaleX="0.7"
@@ -39,10 +38,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <ImageView
+                android:id="@+id/profile_pic"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center"
-                android:src="@drawable/account"
+                android:src="@drawable/logo_tele"
+                android:scaleType="fitCenter"
                 />
 
         </FrameLayout>
