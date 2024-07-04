@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
             for (int i = fragmentManager.getBackStackEntryCount(); i > 0; i--) {
                 fragmentManager.popBackStackImmediate();
             }
-            Toast.makeText(this, "Selected: " + item.getTitle(), Toast.LENGTH_SHORT).show();
             if (item.getItemId() == R.id.HomeB) {
                 replaceFragment(new HomeFragment());
             } else if (item.getItemId() == R.id.BookingB) {

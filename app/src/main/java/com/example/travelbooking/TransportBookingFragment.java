@@ -3,6 +3,7 @@ package com.example.travelbooking;
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Rect;
 import android.os.Bundle;
 
@@ -32,7 +33,7 @@ import java.util.Calendar;
  */
 public class TransportBookingFragment extends Fragment {
 
-    int year, month, day;
+    int yearA, monthA, dayA;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -78,9 +79,9 @@ public class TransportBookingFragment extends Fragment {
         TextView toDate = getView().findViewById(R.id.ToDate);
 
         final Calendar calendar = Calendar.getInstance();
-        year = calendar.get(Calendar.YEAR);
-        month = calendar.get(Calendar.MONTH);
-        day = calendar.get(Calendar.DAY_OF_MONTH);
+        yearA = calendar.get(Calendar.YEAR);
+        monthA = calendar.get(Calendar.MONTH);
+        dayA = calendar.get(Calendar.DAY_OF_MONTH);
         fromDate.setText(SimpleDateFormat.getDateInstance().format(calendar.getTime()));
         toDate.setText(SimpleDateFormat.getDateInstance().format(calendar.getTime()));
         fromDate.setOnClickListener(v -> {
@@ -91,9 +92,10 @@ public class TransportBookingFragment extends Fragment {
 
                     Calendar calendar1 = Calendar.getInstance();
                     calendar1.set(year, month, dayOfMonth);
+                    calendar.set(year, month, dayOfMonth);
                     fromDate.setText(SimpleDateFormat.getDateInstance().format(calendar1.getTime()));
                 }
-            }, year, month, day);
+            }, yearA, monthA, dayA);
             datePickerDialog.show();
         });
         toDate.setOnClickListener(v -> {
@@ -104,12 +106,32 @@ public class TransportBookingFragment extends Fragment {
 
                     Calendar calendar1 = Calendar.getInstance();
                     calendar1.set(year, month, dayOfMonth);
+                    //Check if toDate is before fromDate
+                    if (calendar1.before(calendar)) {
+                        Toast.makeText(getContext(), "Please select a date after the from date", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
                     toDate.setText(SimpleDateFormat.getDateInstance().format(calendar1.getTime()));
+
                 }
-            }, year, month, day);
+            }, yearA, monthA, dayA);
             datePickerDialog.show();
         });
 
+//        //Search Button
+//        ImageButton search = getView().findViewById(R.id.search_button);
+//        search.setOnClickListener(v -> {
+//            if (autoCompleteTextView.getText().toString().isEmpty() || autoCompleteTextView2.getText().toString().isEmpty()) {
+//                Toast.makeText(getContext(), "Please fill in all the fields", Toast.LENGTH_SHORT).show();
+//                return;
+//            }
+//            Intent intent = new Intent(getContext(), TransportFlightsActivity.class);
+//            intent.putExtra("from", autoCompleteTextView.getText().toString());
+//            intent.putExtra("to", autoCompleteTextView2.getText().toString());
+//            intent.putExtra("fromDate", fromDate.getText().toString());
+//            intent.putExtra("toDate", toDate.getText().toString());
+//            startActivity(intent);
+//        });
 
     }
 

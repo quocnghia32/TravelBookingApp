@@ -62,8 +62,20 @@ public class BookingFragment extends Fragment {
     public void onResume() {
         super.onResume();
         ImageButton transport = getView().findViewById(R.id.booking_transport);
+        ImageButton hotel = getView().findViewById(R.id.booking_hotel);
+        ImageButton event = getView().findViewById(R.id.booking_event);
+        ImageButton trip = getView().findViewById(R.id.booking_trips);
         transport.setOnClickListener(v -> {
             ((MainActivity) getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new TransportBookingFragment()).addToBackStack(null).commit();
+        });
+        hotel.setOnClickListener(v -> {
+            ((MainActivity) getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new NotAvailableFragment()).addToBackStack(null).commit();
+        });
+        event.setOnClickListener(v -> {
+            ((MainActivity) getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new NotAvailableFragment()).addToBackStack(null).commit();
+        });
+        trip.setOnClickListener(v -> {
+            ((MainActivity) getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new NotAvailableFragment()).addToBackStack(null).commit();
         });
     }
 

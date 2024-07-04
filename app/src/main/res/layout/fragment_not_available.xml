@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".NotAvailableFragment">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="-100dp"
+        android:src="@drawable/notavailable_image" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Sorry, this feature is not available"
+        android:paddingTop="200dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:textSize="22sp"
+        android:gravity="center"
+        android:textColor="@color/text_secondary" />
+    <ImageButton
+        android:id="@+id/back_button_notAvailable"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="start"
+        android:background="@drawable/back_button"
+        android:backgroundTint="@color/black"
+        android:scaleX="0.7"
+        android:scaleY="0.7"
+        android:scaleType="center" />
+
+
+</FrameLayout>
