@@ -21,4 +21,5 @@
     <color name="ui_light">#FFFFFF</color>
     <color name="ui_light30">#4DFFFFFF</color>
     <color name="screen_background">#F5F5F5</color>
+    <color name="transparent">#00000000</color>
 </resources>

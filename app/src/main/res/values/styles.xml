@@ -13,17 +13,17 @@
 
     </style>
 
-    <style name="aa">
-        <item name="android:backgroundTint">@color/peach300</item>
-        <item name="android:textColor">@color/white</item>
+    <style name="buttonStyleEnd">
+        <item name="android:backgroundTint">@color/white</item>
+        <item name="android:textColor">@color/alert_error</item>
         <item name="android:textSize">20sp</item>
-        <item name="android:padding">10dp</item>>
         <item name="cornerRadius">50dp</item>
         <item name="fontFamily">@font/poppins_bold</item>
-        <item name="android:layout_marginLeft">30dp</item>
-        <item name="android:layout_marginRight">30dp</item>
-        <item name="android:layout_height">70dp</item>
-
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:layout_height">100dp</item>
+        <item name="android:drawableStart">@drawable/exit_icon</item>
+        <item name="android:drawableTint">@color/alert_error</item>
     </style>
 
 </resources>

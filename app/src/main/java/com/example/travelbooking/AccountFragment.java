@@ -1,5 +1,6 @@
 package com.example.travelbooking;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,6 +8,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -59,6 +63,43 @@ public class AccountFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
         return inflater.inflate(R.layout.fragment_account, container, false);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        View view = getView();
+        TextView information = view.findViewById(R.id.infor);
+        TextView payment = view.findViewById(R.id.payment);
+        TextView history = view.findViewById(R.id.history);
+        TextView setting = view.findViewById(R.id.settings);
+        TextView saved = view.findViewById(R.id.saved);
+
+        information.setOnClickListener(v -> {
+            ((MainActivity) getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new UserInformationFragment()).addToBackStack(null).commit();
+        });
+        payment.setOnClickListener(v -> {
+            Toast.makeText(getContext(), "This function will be developed", Toast.LENGTH_SHORT).show();
+        });
+        history.setOnClickListener(v -> {
+            Toast.makeText(getContext(), "This function will be developed", Toast.LENGTH_SHORT).show();
+        });
+        setting.setOnClickListener(v -> {
+            Toast.makeText(getContext(), "This function will be developed", Toast.LENGTH_SHORT).show();
+        });
+        saved.setOnClickListener(v -> {
+            Toast.makeText(getContext(), "This function will be developed", Toast.LENGTH_SHORT).show();
+        });
+
+        Button end = view.findViewById(R.id.end_button);
+        end.setOnClickListener(v -> {
+            Intent i = new Intent(getContext(), WelcomeActivity.class);
+            i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(i);
+            ((MainActivity) getActivity()).finish();
+        });
+
     }
 }

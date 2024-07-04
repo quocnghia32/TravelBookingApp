@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    tools:ignore="HardcodedText"
+    tools:context=".UserInformationFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/poppins_bold"
+                android:gravity="center"
+                android:text="Personal Information"
+                android:textSize="20sp" />
+
+            <ImageButton
+                android:id="@+id/back_button_account"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="start"
+
+                android:background="@drawable/back_button"
+                android:backgroundTint="@color/black"
+                android:scaleX="0.7"
+                android:scaleY="0.7"
+                android:scaleType="center" />
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:src="@drawable/account"
+                />
+
+        </FrameLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:textColorHint="@color/ui_gray"
+            >
+            <EditText
+                android:id="@+id/firstname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_layout"
+                android:gravity="center_vertical"
+                android:layout_marginHorizontal="10dp"
+                android:hint="First Name"
+                android:textSize="16sp"
+                android:inputType="text"
+                android:fontFamily="@font/poppins"
+                android:text="Victoria"
+                android:textColor="@color/text_primary"
+                android:textColorHint="@color/ui_gray" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textColorHint="@color/ui_gray"
+            >
+            <EditText
+                android:id="@+id/lastname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_layout"
+                android:gravity="center_vertical"
+                android:layout_marginHorizontal="10dp"
+                android:hint="Last Name"
+                android:textSize="16sp"
+                android:inputType="text"
+                android:fontFamily="@font/poppins"
+                android:text="Yoker"
+                android:textColor="@color/text_primary"
+                android:textColorHint="@color/ui_gray" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textColorHint="@color/ui_gray"
+            >
+            <EditText
+                android:id="@+id/phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_layout"
+                android:gravity="center_vertical"
+                android:layout_marginHorizontal="10dp"
+                android:hint="Phone"
+                android:textSize="16sp"
+                android:inputType="phone"
+                android:fontFamily="@font/poppins"
+                android:text="+380 123 456"
+                android:textColor="@color/text_primary"
+                android:textColorHint="@color/ui_gray" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textColorHint="@color/ui_gray"
+            >
+            <EditText
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_layout"
+                android:gravity="center_vertical"
+                android:layout_marginHorizontal="10dp"
+                android:hint="Email"
+                android:textSize="16sp"
+                android:inputType="textEmailAddress"
+                android:fontFamily="@font/poppins"
+                android:text="victoria.yoker@gmail.com"
+                android:textColor="@color/text_primary"
+                android:textColorHint="@color/ui_gray" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/save_button"
+            style="@style/buttonStyle"
+            android:layout_width="match_parent"
+            android:layout_marginTop="50dp"
+            android:layout_marginHorizontal="10dp"
+            android:text="Save changes"
+            android:textSize="20sp"
+            />
+
+    </LinearLayout>
+
+</FrameLayout>
