@@ -384,7 +384,7 @@
         </RadioGroup>
 
         <Button
-            android:id="@+id/searchButton"
+            android:id="@+id/search_booking"
             style="@style/buttonStyle"
             android:layout_width="match_parent"
             android:layout_marginTop="7dp"

@@ -4,21 +4,18 @@ import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Rect;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -118,20 +115,20 @@ public class TransportBookingFragment extends Fragment {
             datePickerDialog.show();
         });
 
-//        //Search Button
-//        ImageButton search = getView().findViewById(R.id.search_button);
-//        search.setOnClickListener(v -> {
-//            if (autoCompleteTextView.getText().toString().isEmpty() || autoCompleteTextView2.getText().toString().isEmpty()) {
-//                Toast.makeText(getContext(), "Please fill in all the fields", Toast.LENGTH_SHORT).show();
-//                return;
-//            }
-//            Intent intent = new Intent(getContext(), TransportFlightsActivity.class);
-//            intent.putExtra("from", autoCompleteTextView.getText().toString());
-//            intent.putExtra("to", autoCompleteTextView2.getText().toString());
-//            intent.putExtra("fromDate", fromDate.getText().toString());
-//            intent.putExtra("toDate", toDate.getText().toString());
-//            startActivity(intent);
-//        });
+        //Search Button
+        Button search = getView().findViewById(R.id.search_booking);
+        search.setOnClickListener(v -> {
+            if (autoCompleteTextView.getText().toString().isEmpty() || autoCompleteTextView2.getText().toString().isEmpty()) {
+                Toast.makeText(getContext(), "Please fill in all the fields", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            Intent intent = new Intent(getContext(), TransportFlightsActivity.class);
+            intent.putExtra("from", autoCompleteTextView.getText().toString());
+            intent.putExtra("to", autoCompleteTextView2.getText().toString());
+            intent.putExtra("fromDate", fromDate.getText().toString());
+            intent.putExtra("toDate", toDate.getText().toString());
+            startActivity(intent);
+        });
 
     }
 
