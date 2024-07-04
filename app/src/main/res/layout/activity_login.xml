@@ -67,8 +67,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:textColorHint="@color/ui_gray"
-                >
+                android:textColorHint="@color/ui_gray">
+
                 <EditText
                     android:id="@+id/username"
                     android:layout_width="match_parent"
@@ -171,8 +171,8 @@
                     android:layout_gravity="center"
                     android:alpha="0.9"
                     android:fontFamily="@font/poppins_bold"
-                    android:textColor="@color/text_secondary"
-                    android:text="Or login with" />
+                    android:text="Or login with"
+                    android:textColor="@color/text_secondary" />
 
                 <View
                     android:layout_width="wrap_content"

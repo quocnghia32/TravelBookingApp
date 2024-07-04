@@ -5,5 +5,4 @@
     android:fontFamily="@font/poppins"
     android:padding="10dp"
     android:text="demo"
-    android:textSize="16sp"
-    />
+    android:textSize="16sp"/>

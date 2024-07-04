@@ -11,15 +11,17 @@
         android:layout_height="match_parent"
         android:layout_marginTop="-100dp"
         android:src="@drawable/notavailable_image" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Sorry, this feature is not available"
-        android:paddingTop="200dp"
         android:fontFamily="@font/poppins_semibold"
-        android:textSize="22sp"
         android:gravity="center"
-        android:textColor="@color/text_secondary" />
+        android:paddingTop="200dp"
+        android:text="Sorry, this feature is not available"
+        android:textColor="@color/text_secondary"
+        android:textSize="22sp" />
+
     <ImageButton
         android:id="@+id/back_button_notAvailable"
         android:layout_width="50dp"
@@ -27,9 +29,9 @@
         android:layout_gravity="start"
         android:background="@drawable/back_button"
         android:backgroundTint="@color/black"
+        android:scaleType="center"
         android:scaleX="0.7"
-        android:scaleY="0.7"
-        android:scaleType="center" />
+        android:scaleY="0.7" />
 
 
 </FrameLayout>

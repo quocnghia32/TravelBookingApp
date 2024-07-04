@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".TransportFlightsActivity">
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -24,12 +25,11 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_gravity="start"
-
             android:background="@drawable/back_button"
             android:backgroundTint="@color/black"
+            android:scaleType="center"
             android:scaleX="0.7"
-            android:scaleY="0.7"
-            android:scaleType="center" />
+            android:scaleY="0.7" />
     </FrameLayout>
 
 

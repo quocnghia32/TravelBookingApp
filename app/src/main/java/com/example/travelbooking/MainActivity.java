@@ -74,6 +74,8 @@ public class MainActivity extends AppCompatActivity {
     private void replaceFragment(Fragment fragment) {
         getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, fragment).commit();
     }
+
+    // Hide the keyboard and defocus when the user taps outside of an EditText
     @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
@@ -107,6 +109,5 @@ public class MainActivity extends AppCompatActivity {
         } else {
             Toast.makeText(this, "No user found", Toast.LENGTH_SHORT).show();
         }
-
     }
 }

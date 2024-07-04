@@ -23,11 +23,6 @@ import android.widget.Toast;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link TransportBookingFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class TransportBookingFragment extends Fragment {
 
     int yearA, monthA, dayA;
@@ -47,8 +42,10 @@ public class TransportBookingFragment extends Fragment {
         AutoCompleteTextView autoCompleteTextView = getView().findViewById(R.id.FromSelection);
         AutoCompleteTextView autoCompleteTextView2 = getView().findViewById(R.id.ToSelection);
         String[] arrayList = getResources().getStringArray(R.array.destinations);
+
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getContext(), R.layout.dropdown_item, arrayList);
         ArrayAdapter<String> arrayAdapter2 = new ArrayAdapter<>(getContext(), R.layout.dropdown_item, arrayList);
+
         autoCompleteTextView.setAdapter(arrayAdapter);
         autoCompleteTextView2.setAdapter(arrayAdapter2);
 
@@ -74,13 +71,16 @@ public class TransportBookingFragment extends Fragment {
         //Date Picker
         TextView fromDate = getView().findViewById(R.id.FromDate);
         TextView toDate = getView().findViewById(R.id.ToDate);
-
         final Calendar calendar = Calendar.getInstance();
+
         yearA = calendar.get(Calendar.YEAR);
         monthA = calendar.get(Calendar.MONTH);
         dayA = calendar.get(Calendar.DAY_OF_MONTH);
+
+        //Set the date to the current date
         fromDate.setText(SimpleDateFormat.getDateInstance().format(calendar.getTime()));
         toDate.setText(SimpleDateFormat.getDateInstance().format(calendar.getTime()));
+
         fromDate.setOnClickListener(v -> {
             DatePickerDialog datePickerDialog = new DatePickerDialog(getContext(), new DatePickerDialog.OnDateSetListener() {
                 @Override
@@ -90,17 +90,18 @@ public class TransportBookingFragment extends Fragment {
                     Calendar calendar1 = Calendar.getInstance();
                     calendar1.set(year, month, dayOfMonth);
                     calendar.set(year, month, dayOfMonth);
+
                     fromDate.setText(SimpleDateFormat.getDateInstance().format(calendar1.getTime()));
                 }
             }, yearA, monthA, dayA);
             datePickerDialog.show();
         });
+
         toDate.setOnClickListener(v -> {
             DatePickerDialog datePickerDialog = new DatePickerDialog(getContext(), new DatePickerDialog.OnDateSetListener() {
                 @Override
                 public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                     String dateString = year + " " + month + " " + dayOfMonth;
-
                     Calendar calendar1 = Calendar.getInstance();
                     calendar1.set(year, month, dayOfMonth);
                     //Check if toDate is before fromDate

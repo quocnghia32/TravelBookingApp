@@ -4,13 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="10dp"
-    tools:ignore="HardcodedText"
-    tools:context=".UserInformationFragment">
+    tools:context=".UserInformationFragment"
+    tools:ignore="HardcodedText">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -30,118 +31,121 @@
                 android:layout_gravity="start"
                 android:background="@drawable/back_button"
                 android:backgroundTint="@color/black"
+                android:scaleType="center"
                 android:scaleX="0.7"
-                android:scaleY="0.7"
-                android:scaleType="center" />
+                android:scaleY="0.7" />
         </FrameLayout>
+
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <ImageView
                 android:id="@+id/profile_pic"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center"
-                android:src="@drawable/logo_tele"
                 android:scaleType="fitCenter"
-                />
+                android:src="@drawable/logo_tele" />
 
         </FrameLayout>
+
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
-            android:textColorHint="@color/ui_gray"
-            >
+            android:textColorHint="@color/ui_gray">
+
             <EditText
                 android:id="@+id/firstname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/edittext_layout"
-                android:gravity="center_vertical"
                 android:layout_marginHorizontal="10dp"
-                android:hint="First Name"
-                android:textSize="16sp"
-                android:inputType="text"
+                android:background="@drawable/edittext_layout"
                 android:fontFamily="@font/poppins"
+                android:gravity="center_vertical"
+                android:hint="First Name"
+                android:inputType="text"
                 android:text="Victoria"
                 android:textColor="@color/text_primary"
-                android:textColorHint="@color/ui_gray" />
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:textColorHint="@color/ui_gray"
-            >
-            <EditText
-                android:id="@+id/lastname"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/edittext_layout"
-                android:gravity="center_vertical"
-                android:layout_marginHorizontal="10dp"
-                android:hint="Last Name"
-                android:textSize="16sp"
-                android:inputType="text"
-                android:fontFamily="@font/poppins"
-                android:text="Yoker"
-                android:textColor="@color/text_primary"
-                android:textColorHint="@color/ui_gray" />
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:textColorHint="@color/ui_gray"
-            >
-            <EditText
-                android:id="@+id/phone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/edittext_layout"
-                android:gravity="center_vertical"
-                android:layout_marginHorizontal="10dp"
-                android:hint="Phone"
-                android:textSize="16sp"
-                android:inputType="phone"
-                android:fontFamily="@font/poppins"
-                android:text="+380 123 456"
-                android:textColor="@color/text_primary"
-                android:textColorHint="@color/ui_gray" />
+                android:textColorHint="@color/ui_gray"
+                android:textSize="16sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:textColorHint="@color/ui_gray"
-            >
+            android:textColorHint="@color/ui_gray">
+
+            <EditText
+                android:id="@+id/lastname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:background="@drawable/edittext_layout"
+                android:fontFamily="@font/poppins"
+                android:gravity="center_vertical"
+                android:hint="Last Name"
+                android:inputType="text"
+                android:text="Yoker"
+                android:textColor="@color/text_primary"
+                android:textColorHint="@color/ui_gray"
+                android:textSize="16sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textColorHint="@color/ui_gray">
+
+            <EditText
+                android:id="@+id/phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:background="@drawable/edittext_layout"
+                android:fontFamily="@font/poppins"
+                android:gravity="center_vertical"
+                android:hint="Phone"
+                android:inputType="phone"
+                android:text="+380 123 456"
+                android:textColor="@color/text_primary"
+                android:textColorHint="@color/ui_gray"
+                android:textSize="16sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textColorHint="@color/ui_gray">
+
             <EditText
                 android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/edittext_layout"
-                android:gravity="center_vertical"
                 android:layout_marginHorizontal="10dp"
-                android:hint="Email"
-                android:textSize="16sp"
-                android:inputType="textEmailAddress"
+                android:background="@drawable/edittext_layout"
                 android:fontFamily="@font/poppins"
+                android:gravity="center_vertical"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
                 android:text="victoria.yoker@gmail.com"
                 android:textColor="@color/text_primary"
-                android:textColorHint="@color/ui_gray" />
+                android:textColorHint="@color/ui_gray"
+                android:textSize="16sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/save_button"
             style="@style/buttonStyle"
             android:layout_width="match_parent"
-            android:layout_marginTop="50dp"
             android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="50dp"
             android:text="Save changes"
-            android:textSize="20sp"
-            />
+            android:textSize="20sp" />
 
     </LinearLayout>
 
