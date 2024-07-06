@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="10dp"
     tools:context=".UserInformationFragment"
     tools:ignore="HardcodedText">
@@ -39,14 +40,36 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="30dp">
 
-            <ImageView
-                android:id="@+id/profile_pic"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center"
+                    <ImageView
+                        android:id="@+id/profile_pic"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:scaleType="fitCenter"
+                        />
+                </androidx.cardview.widget.CardView>
+
+            </FrameLayout>
+
+            <ImageButton
+                android:id="@+id/add_image"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/add_image_icon"
+                android:layout_marginLeft="35dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/logo_tele" />
+                android:background="@null"
+                android:layout_gravity="center|bottom"
+                />
 
         </FrameLayout>
 
@@ -66,7 +89,7 @@
                 android:gravity="center_vertical"
                 android:hint="First Name"
                 android:inputType="text"
-                android:text="Victoria"
+                android:text=""
                 android:textColor="@color/text_primary"
                 android:textColorHint="@color/ui_gray"
                 android:textSize="16sp" />
@@ -88,7 +111,7 @@
                 android:gravity="center_vertical"
                 android:hint="Last Name"
                 android:inputType="text"
-                android:text="Yoker"
+                android:text=""
                 android:textColor="@color/text_primary"
                 android:textColorHint="@color/ui_gray"
                 android:textSize="16sp" />
@@ -110,7 +133,7 @@
                 android:gravity="center_vertical"
                 android:hint="Phone"
                 android:inputType="phone"
-                android:text="+380 123 456"
+                android:text=""
                 android:textColor="@color/text_primary"
                 android:textColorHint="@color/ui_gray"
                 android:textSize="16sp" />
@@ -132,7 +155,7 @@
                 android:gravity="center_vertical"
                 android:hint="Email"
                 android:inputType="textEmailAddress"
-                android:text="victoria.yoker@gmail.com"
+                android:text=""
                 android:textColor="@color/text_primary"
                 android:textColorHint="@color/ui_gray"
                 android:textSize="16sp" />

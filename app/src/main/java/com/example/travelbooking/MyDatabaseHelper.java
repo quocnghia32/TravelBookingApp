@@ -100,13 +100,14 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
-    void updateData(String firstName, String lastName, String phone, String email, String username){
+    void updateData(String firstName, String lastName, String phone, String email, String username, byte[] image){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(COLUMN_FIRSTNAME, firstName);
         cv.put(COLUMN_LASTNAME, lastName);
         cv.put(COLUMN_PHONE, phone);
         cv.put(COLUMN_EMAIL, email);
+        cv.put(COLUMN_IMAGE, image);
         long result = db.update(TABLE_NAME, cv, "_id=?", new String[]{username});
         if(result == -1){
             Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
@@ -133,7 +134,7 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
 
     public Bitmap getImage(String username){
         SQLiteDatabase db = this.getReadableDatabase();
-        String query = "SELECT * FROM " + TABLE_NAME + " WHERE " + COLUMN_EMAIL + " = " + username;
+        String query = "SELECT * FROM " + TABLE_NAME + " WHERE " + COLUMN_USERNAME + " = " + username;
         Cursor cursor = db.rawQuery(query, null);
         if(cursor.moveToFirst()){
             //7 is column index of image

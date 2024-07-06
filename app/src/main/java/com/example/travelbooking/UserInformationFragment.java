@@ -1,12 +1,23 @@
 package com.example.travelbooking;
 
+import static androidx.activity.result.ActivityResultLauncherKt.launch;
+
+import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.media.Image;
+import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,33 +27,56 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
+import com.github.dhaval2404.imagepicker.ImagePicker;
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
 
 public class UserInformationFragment extends Fragment {
 
     MyDatabaseHelper DB;
+    ActivityResultLauncher<Intent> imagePickLauncher;
+    Uri imageUri;
+    EditText firstName, lastName, phone, email;
+    Button saveButton;
+    ImageView profilePicture;
+    ImageButton backButton, addImage;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        imagePickLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
+                result -> {
+                    if(result.getResultCode() == Activity.RESULT_OK){
+                        Intent data = result.getData();
+                        if(data!=null && data.getData()!=null){
+                            imageUri = data.getData();
+                            profilePicture.setImageURI(imageUri);
+                        }
+                    }
+                }
+        );
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_user_information, container, false);
-    }
+        View view = inflater.inflate(R.layout.fragment_user_information, container, false);
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        ImageButton backButton = getView().findViewById(R.id.back_button_account);
-        backButton.setOnClickListener(v -> {
-            ((MainActivity) getActivity()).getSupportFragmentManager().popBackStack();
-        });
-
-        EditText firstName = getView().findViewById(R.id.firstname);
-        EditText lastName = getView().findViewById(R.id.lastname);
-        EditText phone = getView().findViewById(R.id.phone);
-        EditText email = getView().findViewById(R.id.email);
-        Button saveButton = getView().findViewById(R.id.save_button);
-        ImageView profilePicture = getView().findViewById(R.id.profile_pic);
+        firstName = view.findViewById(R.id.firstname);
+        lastName = view.findViewById(R.id.lastname);
+        phone = view.findViewById(R.id.phone);
+        email = view.findViewById(R.id.email);
+        saveButton = view.findViewById(R.id.save_button);
+        profilePicture = view.findViewById(R.id.profile_pic);
+        backButton = view.findViewById(R.id.back_button_account);
+        addImage = view.findViewById(R.id.add_image);
         DB = new MyDatabaseHelper(getActivity());
 
         firstName.setText(((MainActivity) getActivity()).user.getFirstName());
@@ -55,17 +89,48 @@ public class UserInformationFragment extends Fragment {
         profilePicture.setImageBitmap(bitmap);
 
 
+        return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        backButton.setOnClickListener(v -> {
+            ((MainActivity) getActivity()).getSupportFragmentManager().popBackStack();
+        });
+
+        addImage.setOnClickListener(v -> {
+            ImagePicker.with(this).cropSquare().compress(600).maxResultSize(600,600)
+                    .createIntent(new Function1<Intent, Unit>() {
+                        @Override
+                        public Unit invoke(Intent intent) {
+                            imagePickLauncher.launch(intent);
+                            return null;
+                        }
+                    });
+        });
         saveButton.setOnClickListener(v -> {
             //Save the user information
             String fName = firstName.getText().toString();
-            String lname = lastName.getText().toString();
+            String lName = lastName.getText().toString();
             String ph = phone.getText().toString();
             String em = email.getText().toString();
+
+            Bitmap curBitmap = ((BitmapDrawable) profilePicture.getDrawable()).getBitmap();
+            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+            curBitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+            byte[] imageInByte = stream.toByteArray();
+
             ((MainActivity) getActivity()).user.setFirstName(fName);
-            ((MainActivity) getActivity()).user.setLastName(lname);
+            ((MainActivity) getActivity()).user.setLastName(lName);
             ((MainActivity) getActivity()).user.setPhone(ph);
             ((MainActivity) getActivity()).user.setEmail(em);
-            ((MainActivity) getActivity()).db.updateData(fName, lname, ph, em, ((MainActivity) getActivity()).username);
+            ((MainActivity) getActivity()).user.setImage(imageInByte);
+
+            ((MainActivity) getActivity()).db.updateData(fName, lName, ph, em, ((MainActivity) getActivity()).username,imageInByte);
         });
+
     }
+
 }
