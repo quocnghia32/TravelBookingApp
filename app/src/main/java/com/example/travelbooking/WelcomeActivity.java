@@ -47,6 +47,8 @@ public class WelcomeActivity extends AppCompatActivity {
 //            } else {
 //                Toast.makeText(this, "Failed to save!", Toast.LENGTH_SHORT).show();
 //            }
+//            User user1 = new User("Jane","Doe","0987654321","JaneDoe@gmail.com", "1", "1", null);
+//            success = db.addUser(user1);
 //
 //        });
 

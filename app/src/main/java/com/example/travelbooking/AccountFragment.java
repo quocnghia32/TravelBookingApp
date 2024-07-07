@@ -46,9 +46,10 @@ public class AccountFragment extends Fragment {
 
         // Set the image and name of the account
         byte[] image = user.getImage();
-        Bitmap bitmap = BitmapFactory.decodeByteArray(image, 0, image.length);
-
-        accountImage.setImageBitmap(bitmap);
+        if (image != null){
+            Bitmap bitmap = BitmapFactory.decodeByteArray(image, 0, image.length);
+            accountImage.setImageBitmap(bitmap);
+        }
         accountName.setText(user.getFirstName() + " " + user.getLastName());
 
 

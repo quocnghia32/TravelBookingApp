@@ -15,10 +15,9 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
 
     private Context context;
     private static final String DATABASE_NAME = "User.db";
-    private static final int DATABASE_VERSION = 3;
+    private static final int DATABASE_VERSION = 4;
 
-    private static final String TABLE_NAME = "users";
-    private static final String COLUMN_ID = "_id";
+    private static final String TABLE_NAME = "User";
     private static final String COLUMN_FIRSTNAME = "first_name";
     private static final String COLUMN_LASTNAME = "last_name";
     private static final String COLUMN_PHONE = "phone";
@@ -26,6 +25,23 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_USERNAME = "username";
     private static final String COLUMN_PASSWORD = "password";
     private static final String COLUMN_IMAGE = "image";
+
+    private static final String FLIGHT_TABLE_NAME = "Flight";
+    private static final String COLUMN_FLIGHT_ID = "flight_id";
+    private static final String COLUMN_FLIGHT_FROM = "flight_from";
+    private static final String COLUMN_FLIGHT_3LFROM = "flight_3lfrom";
+    private static final String COLUMN_FLIGHT_TO = "flight_to";
+    private static final String COLUMN_FLIGHT_3LTO = "flight_3lto";
+    private static final String COLUMN_FLIGHT_DATE = "flight_date";
+    private static final String COLUMN_FLIGHT_TIME = "flight_time";
+    private static final String COLUMN_FLIGHT_PRICE = "flight_price";
+
+    private static final String SEAT_TABLE_NAME = "Seat";
+    private static final String COLUMN_SEAT_USERID = "username";
+    private static final String COLUMN_SEAT_FLIGHTID = "flight_id";
+    private static final String COLUMN_SEAT_SEATNUMBER = "seat_number";
+
+
 
     MyDatabaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -35,19 +51,42 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String query = "CREATE TABLE " + TABLE_NAME +
-                " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                " (" +
                 COLUMN_FIRSTNAME + " TEXT, " +
                 COLUMN_LASTNAME + " TEXT, " +
                 COLUMN_PHONE + " TEXT, " +
                 COLUMN_EMAIL + " TEXT, " +
-                COLUMN_USERNAME + " TEXT UNIQUE, " +
+                COLUMN_USERNAME + " TEXT PRIMARY KEY, " +
                 COLUMN_PASSWORD + " TEXT, " +
                 COLUMN_IMAGE + " BLOB);";
+        String query2 = "CREATE TABLE " + FLIGHT_TABLE_NAME +
+                " (" +
+                COLUMN_FLIGHT_ID + " TEXT PRIMARY KEY, " +
+                COLUMN_FLIGHT_FROM + " TEXT, " +
+                COLUMN_FLIGHT_3LFROM + " TEXT, " +
+                COLUMN_FLIGHT_TO + " TEXT, " +
+                COLUMN_FLIGHT_3LTO + " TEXT, " +
+                COLUMN_FLIGHT_DATE + " TEXT, " +
+                COLUMN_FLIGHT_TIME + " TEXT, " +
+                COLUMN_FLIGHT_PRICE + " TEXT);";
+        String query3 = "CREATE TABLE " + SEAT_TABLE_NAME +
+                " (" +
+                COLUMN_SEAT_USERID + " TEXT, " +
+                COLUMN_SEAT_FLIGHTID + " TEXT, " +
+                COLUMN_SEAT_SEATNUMBER + " TEXT, " +
+                "PRIMARY KEY (" + COLUMN_SEAT_FLIGHTID + ", " + COLUMN_SEAT_SEATNUMBER + "), " +
+                "FOREIGN KEY (" + COLUMN_SEAT_USERID + ") REFERENCES " + TABLE_NAME + "(" + COLUMN_USERNAME + "), " +
+                "FOREIGN KEY (" + COLUMN_SEAT_FLIGHTID + ") REFERENCES " + FLIGHT_TABLE_NAME + "(" + COLUMN_FLIGHT_ID + "));";
         db.execSQL(query);
+        db.execSQL(query2);
+        db.execSQL(query3);
+
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + FLIGHT_TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + SEAT_TABLE_NAME);
         onCreate(db);
     }
 
@@ -70,6 +109,42 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
             return true;
         }
     }
+    public boolean addFlight(Flight currentFlight) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(COLUMN_FLIGHT_ID, currentFlight.getFlightID());
+        cv.put(COLUMN_FLIGHT_FROM, currentFlight.getFlightFrom());
+        cv.put(COLUMN_FLIGHT_3LFROM, currentFlight.getFlight3lFrom());
+        cv.put(COLUMN_FLIGHT_TO, currentFlight.getFlightTo());
+        cv.put(COLUMN_FLIGHT_3LTO, currentFlight.getFlight3lTo());
+        cv.put(COLUMN_FLIGHT_DATE, currentFlight.getFlightDate());
+        cv.put(COLUMN_FLIGHT_TIME, currentFlight.getFlightTime());
+        cv.put(COLUMN_FLIGHT_PRICE, currentFlight.getFlightPrice());
+        long result = db.insert(FLIGHT_TABLE_NAME, null, cv);
+        if(result == -1){
+            Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
+            return false;
+        }else {
+            Toast.makeText(context, "Added Successfully!", Toast.LENGTH_SHORT).show();
+            return true;
+        }
+    }
+    public boolean addSeat(String username, String flight_id, String seat_number) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(COLUMN_SEAT_USERID, username);
+        cv.put(COLUMN_SEAT_FLIGHTID, flight_id);
+        cv.put(COLUMN_SEAT_SEATNUMBER, seat_number);
+        long result = db.insert(SEAT_TABLE_NAME, null, cv);
+        if(result == -1){
+            Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
+            return false;
+        }else {
+            Toast.makeText(context, "Added Successfully!", Toast.LENGTH_SHORT).show();
+            return true;
+        }
+    }
+
 
     Cursor readAllData(){
         String query = "SELECT * FROM " + TABLE_NAME;
@@ -108,7 +183,7 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
         cv.put(COLUMN_PHONE, phone);
         cv.put(COLUMN_EMAIL, email);
         cv.put(COLUMN_IMAGE, image);
-        long result = db.update(TABLE_NAME, cv, "_id=?", new String[]{username});
+        long result = db.update(TABLE_NAME, cv, COLUMN_USERNAME+"=?", new String[]{username});
         if(result == -1){
             Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
         }else {
@@ -119,7 +194,7 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
 
     void deleteOneRow(String row_id){
         SQLiteDatabase db = this.getWritableDatabase();
-        long result = db.delete(TABLE_NAME, "_id=?", new String[]{row_id});
+        long result = db.delete(TABLE_NAME, COLUMN_USERNAME+"=?", new String[]{row_id});
         if(result == -1){
             Toast.makeText(context, "Failed to Delete.", Toast.LENGTH_SHORT).show();
         }else{

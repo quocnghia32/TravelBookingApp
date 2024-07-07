@@ -165,7 +165,6 @@ public class WeeklyView extends LinearLayout {
                     offset -= 3*dayWidth;
                     offset = Math.max(offset, 0);
                     offset = Math.min(offset, (daysInMonth - 7) * dayWidth);
-                   // scrollTo(offset, 0);
                     return offset;
                 } else offset += dayWidth;
             }

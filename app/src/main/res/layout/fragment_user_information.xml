@@ -55,6 +55,7 @@
                         android:layout_height="100dp"
                         android:layout_gravity="center"
                         android:scaleType="fitCenter"
+                        android:src="@drawable/cus_icon_bigger"
                         />
                 </androidx.cardview.widget.CardView>
 

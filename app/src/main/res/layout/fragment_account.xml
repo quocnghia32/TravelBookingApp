@@ -24,7 +24,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            app:cardBackgroundColor="@color/transparent"
             android:layout_gravity="center"
             app:cardCornerRadius="30dp">
 
@@ -32,9 +31,9 @@
                 android:id="@+id/account_image"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:background="@color/transparent"
-                android:backgroundTint="@color/transparent"
+                android:layout_gravity="center"
                 android:scaleType="fitCenter"
+                android:src="@drawable/cus_icon_bigger"
                  />
         </androidx.cardview.widget.CardView>
 

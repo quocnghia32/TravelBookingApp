@@ -43,9 +43,9 @@ public class MainActivity extends AppCompatActivity {
         // Get the user from the intent
         if (getIntent().hasExtra("username")) {
             username = getIntent().getStringExtra("username");
-            Toast.makeText(this, "Welcome " + username, Toast.LENGTH_SHORT).show();
             getUser();
-            Cursor cursor = db.readByUsername(username);
+            Toast.makeText(this, "Welcome " + user.getFirstName() + " " + user.getLastName(), Toast.LENGTH_SHORT).show();
+
         }
         // Set the home fragment as the default fragment
         replaceFragment(new HomeFragment());
@@ -96,14 +96,13 @@ public class MainActivity extends AppCompatActivity {
         Cursor cursor = db.readByUsername(username);
         if (cursor.getCount() > 0) {
             cursor.moveToFirst();
-            int id = cursor.getInt(0);
-            String firstName = cursor.getString(1);
-            String lastName = cursor.getString(2);
-            String phone = cursor.getString(3);
-            String email = cursor.getString(4);
-            String username = cursor.getString(5);
-            String password = cursor.getString(6);
-            byte[] image = cursor.getBlob(7);
+            String firstName = cursor.getString(0);
+            String lastName = cursor.getString(1);
+            String phone = cursor.getString(2);
+            String email = cursor.getString(3);
+            String username = cursor.getString(4);
+            String password = cursor.getString(5);
+            byte[] image = cursor.getBlob(6);
             user = new User(firstName, lastName, phone, email, username, password, image);
         } else {
             Toast.makeText(this, "No user found", Toast.LENGTH_SHORT).show();

@@ -83,10 +83,10 @@ public class UserInformationFragment extends Fragment {
         email.setText(((MainActivity) getActivity()).user.getEmail());
 
         byte[] img = ((MainActivity) getActivity()).user.getImage();
-        Bitmap bitmap = BitmapFactory.decodeByteArray(img, 0,img.length);
-        profilePicture.setImageBitmap(bitmap);
-
-
+        if (img != null){
+            Bitmap bitmap = BitmapFactory.decodeByteArray(img, 0,img.length);
+            profilePicture.setImageBitmap(bitmap);
+        }
         return view;
     }
 
@@ -127,7 +127,7 @@ public class UserInformationFragment extends Fragment {
             ((MainActivity) getActivity()).user.setImage(imageInByte);
 
             ((MainActivity) getActivity()).db.updateData(fName, lName, ph, em, ((MainActivity) getActivity()).username,imageInByte);
-            ((MainActivity) getActivity()).getSupportFragmentManager().popBackStack();
+            //((MainActivity) getActivity()).getSupportFragmentManager().popBackStack();
         });
 
     }
