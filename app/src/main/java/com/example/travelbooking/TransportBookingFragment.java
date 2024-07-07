@@ -25,7 +25,8 @@ import java.util.Calendar;
 
 public class TransportBookingFragment extends Fragment {
 
-    int yearA, monthA, dayA;
+    int yearFrom, monthFrom, dayFrom;
+    int yearTo, monthTo, dayTo;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -71,29 +72,35 @@ public class TransportBookingFragment extends Fragment {
         //Date Picker
         TextView fromDate = getView().findViewById(R.id.FromDate);
         TextView toDate = getView().findViewById(R.id.ToDate);
-        final Calendar calendar = Calendar.getInstance();
+        Calendar calendarFrom = Calendar.getInstance();
+        Calendar calendarTo = Calendar.getInstance();
 
-        yearA = calendar.get(Calendar.YEAR);
-        monthA = calendar.get(Calendar.MONTH);
-        dayA = calendar.get(Calendar.DAY_OF_MONTH);
+        yearFrom = yearTo = calendarFrom.get(Calendar.YEAR);
+        monthFrom = monthTo = calendarFrom.get(Calendar.MONTH);
+        dayFrom = dayTo = calendarFrom.get(Calendar.DAY_OF_MONTH);
 
         //Set the date to the current date
-        fromDate.setText(SimpleDateFormat.getDateInstance().format(calendar.getTime()));
-        toDate.setText(SimpleDateFormat.getDateInstance().format(calendar.getTime()));
+        fromDate.setText(SimpleDateFormat.getDateInstance().format(calendarFrom.getTime()));
+        toDate.setText(SimpleDateFormat.getDateInstance().format(calendarTo.getTime()));
 
         fromDate.setOnClickListener(v -> {
             DatePickerDialog datePickerDialog = new DatePickerDialog(getContext(), new DatePickerDialog.OnDateSetListener() {
                 @Override
                 public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                    String dateString = year + " " + month + " " + dayOfMonth;
-
-                    Calendar calendar1 = Calendar.getInstance();
-                    calendar1.set(year, month, dayOfMonth);
-                    calendar.set(year, month, dayOfMonth);
-
-                    fromDate.setText(SimpleDateFormat.getDateInstance().format(calendar1.getTime()));
+                    calendarFrom.set(year, month, dayOfMonth);
+                    fromDate.setText(SimpleDateFormat.getDateInstance().format(calendarFrom.getTime()));
+                    yearFrom = year;
+                    monthFrom = month;
+                    dayFrom = dayOfMonth;
+                    if (calendarTo.before(calendarFrom)) {
+                        yearTo = year;
+                        monthTo = month;
+                        dayTo = dayOfMonth;
+                        calendarTo.set(year, month, dayOfMonth);
+                        toDate.setText(SimpleDateFormat.getDateInstance().format(calendarTo.getTime()));
+                    }
                 }
-            }, yearA, monthA, dayA);
+            }, yearFrom, monthFrom, dayFrom);
             datePickerDialog.show();
         });
 
@@ -101,18 +108,20 @@ public class TransportBookingFragment extends Fragment {
             DatePickerDialog datePickerDialog = new DatePickerDialog(getContext(), new DatePickerDialog.OnDateSetListener() {
                 @Override
                 public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                    String dateString = year + " " + month + " " + dayOfMonth;
-                    Calendar calendar1 = Calendar.getInstance();
-                    calendar1.set(year, month, dayOfMonth);
+                    Calendar currentCalendar = Calendar.getInstance();
+                    currentCalendar.set(year, month, dayOfMonth);
                     //Check if toDate is before fromDate
-                    if (calendar1.before(calendar)) {
+                    if (currentCalendar.before(calendarFrom)) {
                         Toast.makeText(getContext(), "Please select a date after the from date", Toast.LENGTH_SHORT).show();
                         return;
                     }
-                    toDate.setText(SimpleDateFormat.getDateInstance().format(calendar1.getTime()));
-
+                    calendarTo.set(year, month, dayOfMonth);
+                    toDate.setText(SimpleDateFormat.getDateInstance().format(calendarTo.getTime()));
+                    yearTo = year;
+                    monthTo = month;
+                    dayTo = dayOfMonth;
                 }
-            }, yearA, monthA, dayA);
+            }, yearTo, monthTo, dayTo);
             datePickerDialog.show();
         });
 
@@ -126,8 +135,9 @@ public class TransportBookingFragment extends Fragment {
             Intent intent = new Intent(getContext(), TransportFlightsActivity.class);
             intent.putExtra("from", autoCompleteTextView.getText().toString());
             intent.putExtra("to", autoCompleteTextView2.getText().toString());
-            intent.putExtra("fromDate", fromDate.getText().toString());
-            intent.putExtra("toDate", toDate.getText().toString());
+            intent.putExtra("fromDateYear", yearFrom);
+            intent.putExtra("fromDateMonth", monthFrom);
+            intent.putExtra("fromDateDay", dayTo);
             startActivity(intent);
         });
 

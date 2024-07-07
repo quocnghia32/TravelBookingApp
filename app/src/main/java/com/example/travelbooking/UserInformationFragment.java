@@ -27,8 +27,6 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
 import com.github.dhaval2404.imagepicker.ImagePicker;
 
 import java.io.ByteArrayInputStream;
@@ -129,6 +127,7 @@ public class UserInformationFragment extends Fragment {
             ((MainActivity) getActivity()).user.setImage(imageInByte);
 
             ((MainActivity) getActivity()).db.updateData(fName, lName, ph, em, ((MainActivity) getActivity()).username,imageInByte);
+            ((MainActivity) getActivity()).getSupportFragmentManager().popBackStack();
         });
 
     }

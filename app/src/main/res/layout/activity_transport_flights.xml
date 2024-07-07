@@ -31,6 +31,26 @@
             android:scaleX="0.7"
             android:scaleY="0.7" />
     </FrameLayout>
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true">
 
+        <com.example.travelbooking.WeeklyView
+            android:id="@+id/weeklyView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+        />
+
+    </HorizontalScrollView>
+
+    <TextView
+        android:id="@+id/selectedDayEvents"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="Select a day to see events"
+        android:textColor="@android:color/black"/>
 
 </LinearLayout>
