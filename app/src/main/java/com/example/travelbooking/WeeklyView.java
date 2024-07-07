@@ -20,7 +20,6 @@ import java.util.Locale;
 
 public class WeeklyView extends LinearLayout {
 
-    private List<Event> events;
     private OnDaySelectedListener onDaySelectedListener;
     private String selectedDate = "";
     private SimpleDateFormat dateFormat = new SimpleDateFormat("dd", Locale.getDefault());
@@ -52,11 +51,6 @@ public class WeeklyView extends LinearLayout {
         poppinsMedium = ResourcesCompat.getFont(context, R.font.poppins_medium);
         poppinsSemiBold = ResourcesCompat.getFont(context, R.font.poppins_semibold);
         calculateDayWidth(context);
-    }
-
-    public void setEvents(List<Event> events) {
-        this.events = events;
-        populateDays();
     }
 
     public void setMonthYear(int year, int month) {

@@ -1,6 +1,7 @@
 package com.example.travelbooking;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageButton;
@@ -12,17 +13,26 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class TransportFlightsActivity extends AppCompatActivity {
 
-    private TextView selectedDayEvents;
+    private TextView numFlights;
     private WeeklyView weeklyView;
     private List<Event> events;
     private String selectedDate = "15";
     private HorizontalScrollView scrollView;
+
+    private ArrayList<Flight> mFlights ;
+    private RecyclerView mRecyclerFlight;
+    private FlightAdapter mFlightAdapter;
+
+    private MyDatabaseHelper db;
+    private int year, month, day;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,41 +45,55 @@ public class TransportFlightsActivity extends AppCompatActivity {
             return insets;
         });
         Intent intent = getIntent();
-        int year = intent.getIntExtra("fromDateYear", 0);
-        int month = intent.getIntExtra("fromDateMonth", 0) + 1;
-        int day = intent.getIntExtra("fromDateDay", 0);
-        Toast.makeText(this, "Selected Date: " + day + "/" + month + "/" + year, Toast.LENGTH_SHORT).show();
+        year = intent.getIntExtra("fromDateYear", 0);
+        month = intent.getIntExtra("fromDateMonth", 0) + 1;
+        day = intent.getIntExtra("fromDateDay", 0);
         selectedDate = String.valueOf(day);
         if (day < 10) selectedDate = "0" + selectedDate;
-        Toast.makeText(this, "Selected Date: " + selectedDate, Toast.LENGTH_SHORT).show();
 
         ImageButton back = findViewById(R.id.back_button_flights);
         back.setOnClickListener(v -> finish());
         scrollView = findViewById(R.id.horizontalScrollView);
         weeklyView = findViewById(R.id.weeklyView);
-        selectedDayEvents = findViewById(R.id.selectedDayEvents);
-        events = new ArrayList<>();
+        numFlights = findViewById(R.id.numFlight);
+        mRecyclerFlight = findViewById(R.id.flights_recycler_view);
+        mFlights = new ArrayList<>();
+        db = new MyDatabaseHelper(this);
 
-        events.add(new Event("2024-07-01", "Event 1"));
-        events.add(new Event("2024-07-03", "Event 2"));
-        events.add(new Event("2024-07-05", "Event 3"));
+        weeklyView.setMonthYear(year, month);
 
-        weeklyView.setEvents(events);
-        weeklyView.setMonthYear(year, month); // Set the desired month and year
-
-        weeklyView.setOnDaySelectedListener(date -> showEventsForDate(date));
+        weeklyView.setOnDaySelectedListener(date -> setListFlight(date));
 
         int offset = weeklyView.setSelectedDate(selectedDate);
         scrollView.post(() -> scrollView.scrollTo(offset, 0));
+
+        setListFlight(selectedDate);
+        mFlightAdapter = new FlightAdapter(this,mFlights);
+        mRecyclerFlight.setAdapter(mFlightAdapter);
+        mRecyclerFlight.setLayoutManager(new LinearLayoutManager(this));
     }
 
-    private void showEventsForDate(String date) {
-        StringBuilder eventsForDate = new StringBuilder("Events for " + date + ":\n");
-        for (Event event : events) {
-            if (event.getDate().equals(date)) {
-                eventsForDate.append(event.getTitle()).append("\n");
+    private void setListFlight(String date) {
+        Cursor cursor = db.readFlightsByDate(year, month, date);
+        mFlights.clear();
+        if(cursor.getCount() == 0) {
+            Toast.makeText(this, "No data.", Toast.LENGTH_SHORT).show();
+        } else {
+            while(cursor.moveToNext()) {
+                String flight_id = cursor.getString(0);
+                String flight_from = cursor.getString(1);
+                String flight_3lfrom = cursor.getString(2);
+                String flight_to = cursor.getString(3);
+                String flight_3lto = cursor.getString(4);
+                String flight_date = cursor.getString(5);
+                String flight_time = cursor.getString(6);
+                String flight_price = cursor.getString(7);
+                mFlights.add(new Flight(flight_id, flight_from, flight_3lfrom, flight_to, flight_3lto, flight_date, flight_time, flight_price));
             }
         }
-        selectedDayEvents.setText(eventsForDate.toString());
+        numFlights.setText(mFlights.size() + " flights");
+        mFlightAdapter = new FlightAdapter(this,mFlights);
+        mRecyclerFlight.setAdapter(mFlightAdapter);
+        mRecyclerFlight.setLayoutManager(new LinearLayoutManager(this));
     }
 }

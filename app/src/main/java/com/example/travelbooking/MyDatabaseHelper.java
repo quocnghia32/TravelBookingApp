@@ -144,7 +144,30 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
             return true;
         }
     }
+    Cursor readAllFlights(){
+        String query = "SELECT * FROM " + FLIGHT_TABLE_NAME;
+        SQLiteDatabase db = this.getReadableDatabase();
 
+        Cursor cursor = null;
+        if(db != null){
+            cursor = db.rawQuery(query, null);
+        }
+        return cursor;
+    }
+    Cursor readFlightsByDate(int year, int month, String day){
+        String FlightDate = year + "-";
+        if (month < 10)
+            FlightDate += "0";
+        FlightDate += month + "-" + day;
+        String query = "SELECT * FROM " + FLIGHT_TABLE_NAME + " WHERE " + COLUMN_FLIGHT_DATE + " = '" + FlightDate + "'";
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = null;
+        Log.i("readFlightsByDate", query);
+        if(db != null){
+            cursor = db.rawQuery(query, null);
+        }
+        return cursor;
+    }
 
     Cursor readAllData(){
         String query = "SELECT * FROM " + TABLE_NAME;
@@ -204,7 +227,7 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
 
     void deleteAllData(){
         SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("DELETE FROM " + TABLE_NAME);
+        db.execSQL("DELETE FROM " + FLIGHT_TABLE_NAME);
     }
 
     public Bitmap getImage(String username){
