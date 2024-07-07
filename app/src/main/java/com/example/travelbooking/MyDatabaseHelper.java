@@ -154,12 +154,15 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
         }
         return cursor;
     }
-    Cursor readFlightsByDate(int year, int month, String day){
+    Cursor readFlights(int year, int month, String day, String from, String to){
         String FlightDate = year + "-";
         if (month < 10)
             FlightDate += "0";
         FlightDate += month + "-" + day;
-        String query = "SELECT * FROM " + FLIGHT_TABLE_NAME + " WHERE " + COLUMN_FLIGHT_DATE + " = '" + FlightDate + "'";
+        String query = "SELECT * FROM " + FLIGHT_TABLE_NAME +
+                " WHERE " + COLUMN_FLIGHT_DATE + " = '" + FlightDate +
+                "' AND " + COLUMN_FLIGHT_3LFROM + " = '" + from +
+                "' AND " + COLUMN_FLIGHT_3LTO + " = '" + to + "'";
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = null;
         Log.i("readFlightsByDate", query);

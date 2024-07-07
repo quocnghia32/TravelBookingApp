@@ -8,6 +8,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,8 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageButton;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,7 +30,10 @@ public class TransportBookingFragment extends Fragment {
 
     int yearFrom, monthFrom, dayFrom;
     int yearTo, monthTo, dayTo;
-
+    RadioButton radioFlight, ecoClass, busClass;
+    RadioGroup classGroup;
+    String[] destinations;
+    AutoCompleteTextView autoCompleteTextView, autoCompleteTextView2;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -40,18 +46,22 @@ public class TransportBookingFragment extends Fragment {
     public void onResume() {
         super.onResume();
         //Set Array Adapter for AutoCompleteTextView
-        AutoCompleteTextView autoCompleteTextView = getView().findViewById(R.id.FromSelection);
-        AutoCompleteTextView autoCompleteTextView2 = getView().findViewById(R.id.ToSelection);
-        String[] arrayList = getResources().getStringArray(R.array.destinations);
+        autoCompleteTextView = getView().findViewById(R.id.FromSelection);
+        autoCompleteTextView2 = getView().findViewById(R.id.ToSelection);
+        destinations = getResources().getStringArray(R.array.destinations);
 
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getContext(), R.layout.dropdown_item, arrayList);
-        ArrayAdapter<String> arrayAdapter2 = new ArrayAdapter<>(getContext(), R.layout.dropdown_item, arrayList);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getContext(), R.layout.dropdown_item, destinations);
+        ArrayAdapter<String> arrayAdapter2 = new ArrayAdapter<>(getContext(), R.layout.dropdown_item, destinations);
 
         autoCompleteTextView.setAdapter(arrayAdapter);
         autoCompleteTextView2.setAdapter(arrayAdapter2);
 
         ImageButton back = getView().findViewById(R.id.back_button);
         ImageButton swap = getView().findViewById(R.id.swap_button);
+        radioFlight = getView().findViewById(R.id.radioFlight);
+        ecoClass = getView().findViewById(R.id.economy);
+        busClass = getView().findViewById(R.id.business);
+        classGroup = getView().findViewById(R.id.classGroup);
 
         //Back Button
         back.setOnClickListener(v -> {
@@ -59,13 +69,12 @@ public class TransportBookingFragment extends Fragment {
         });
         //Swap Button
         swap.setOnClickListener(v -> {
-            String temp = autoCompleteTextView2.getText().toString();
-            int pos = arrayAdapter.getPosition(autoCompleteTextView.getText().toString());
-            if (pos == -1) pos = 0;
-            autoCompleteTextView2.setText(arrayList[pos].toString(), false);
-            pos = arrayAdapter.getPosition(temp);
-            if (pos == -1) pos = 1;
-            autoCompleteTextView.setText(arrayList[pos].toString(), false);
+            int pos1 = getFromResouce(autoCompleteTextView.getText().toString());
+            int pos2 = getFromResouce(autoCompleteTextView2.getText().toString());
+            if (pos1 == -1) pos1 = 0;
+            if (pos2 == -1) pos2 = 1;
+            autoCompleteTextView2.setText(destinations[pos1].toString(), false);
+            autoCompleteTextView.setText(destinations[pos2].toString(), false);
             resetArray();
         });
 
@@ -128,8 +137,24 @@ public class TransportBookingFragment extends Fragment {
         //Search Button
         Button search = getView().findViewById(R.id.search_booking);
         search.setOnClickListener(v -> {
-            if (autoCompleteTextView.getText().toString().isEmpty() || autoCompleteTextView2.getText().toString().isEmpty()) {
-                Toast.makeText(getContext(), "Please fill in all the fields", Toast.LENGTH_SHORT).show();
+            //search if the from and to location is valid
+            int pos1 = getFromResouce(autoCompleteTextView.getText().toString());
+            int pos2 = getFromResouce(autoCompleteTextView2.getText().toString());
+            if (pos1 == -1) {
+                Toast.makeText(getContext(), "Please select a valid from location", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if (pos2 == -1) {
+                Toast.makeText(getContext(), "Please select a valid to location", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if (pos1 == pos2) {
+                Toast.makeText(getContext(), "From and To locations cannot be the same", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            //check if radioFlight is not chosen
+            if (!radioFlight.isChecked()) {
+                Toast.makeText(getContext(), "We currently only support for flight", Toast.LENGTH_SHORT).show();
                 return;
             }
             Intent intent = new Intent(getContext(), TransportFlightsActivity.class);
@@ -138,21 +163,32 @@ public class TransportBookingFragment extends Fragment {
             intent.putExtra("fromDateYear", yearFrom);
             intent.putExtra("fromDateMonth", monthFrom);
             intent.putExtra("fromDateDay", dayTo);
+            //put string for class
+            int selectedId = classGroup.getCheckedRadioButtonId();
+            RadioButton selectedClass = getView().findViewById(selectedId);
+            intent.putExtra("class", selectedClass.getText().toString());
+            Log.i("Class", selectedClass.getText().toString());
             startActivity(intent);
         });
 
     }
 
     private void resetArray() {
-        AutoCompleteTextView autoCompleteTextView = getView().findViewById(R.id.FromSelection);
-        AutoCompleteTextView autoCompleteTextView2 = getView().findViewById(R.id.ToSelection);
-        String[] arrayList = getResources().getStringArray(R.array.destinations);
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getContext(), R.layout.dropdown_item, arrayList);
-        ArrayAdapter<String> arrayAdapter2 = new ArrayAdapter<>(getContext(), R.layout.dropdown_item, arrayList);
+        autoCompleteTextView= getView().findViewById(R.id.FromSelection);
+        autoCompleteTextView2 = getView().findViewById(R.id.ToSelection);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getContext(), R.layout.dropdown_item, destinations);
+        ArrayAdapter<String> arrayAdapter2 = new ArrayAdapter<>(getContext(), R.layout.dropdown_item, destinations);
         autoCompleteTextView.setAdapter(arrayAdapter);
         autoCompleteTextView2.setAdapter(arrayAdapter2);
     }
-
+    private int getFromResouce(String currentString){
+        for (int i = 0; i < destinations.length; i++) {
+            if (destinations[i].equals(currentString)) {
+                return i;
+            }
+        }
+        return -1;
+    }
     private void hideKeyboard(View view) {
         InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);

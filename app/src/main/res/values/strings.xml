@@ -2,24 +2,62 @@
     <string name="app_name">Travel Booking</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string-array name="destinations">
-        <item>New York (NYC)</item>
+        <item>Amsterdam (AMS)</item>
+        <item>Atlanta (ATL)</item>
+        <item>Athens (ATH)</item>
+        <item>Auckland (AKL)</item>
+        <item>Bangkok (BKK)</item>
+        <item>Bangalore (BLR)</item>
+        <item>Beijing (PEK)</item>
+        <item>Boston (BOS)</item>
+        <item>Buenos Aires (EZE)</item>
+        <item>Cape Town (CPT)</item>
+        <item>Chicago (ORD)</item>
+        <item>Dallas (DFW)</item>
+        <item>Delhi (DEL)</item>
+        <item>Denver (DEN)</item>
+        <item>Detroit (DTW)</item>
+        <item>Dubai (DXB)</item>
+        <item>Frankfurt (FRA)</item>
+        <item>Hong Kong (HKG)</item>
+        <item>Houston (IAH)</item>
+        <item>Hyderabad (HYD)</item>
+        <item>Istanbul (IST)</item>
+        <item>Johannesburg (JNB)</item>
+        <item>Kuala Lumpur (KUL)</item>
+        <item>Las Vegas (LAS)</item>
+        <item>Lisbon (LIS)</item>
         <item>London (LDN)</item>
         <item>Los Angeles (LAX)</item>
-        <item>Chicago (ORD)</item>
+        <item>Madrid (MAD)</item>
+        <item>Melbourne (MEL)</item>
+        <item>Mexico City (MEX)</item>
         <item>Miami (MIA)</item>
-        <item>San Francisco (SFO)</item>
-        <item>Houston (IAH)</item>
-        <item>Atlanta (ATL)</item>
-        <item>Dallas (DFW)</item>
-        <item>Denver (DEN)</item>
-        <item>Seattle (SEA)</item>
-        <item>Las Vegas (LAS)</item>
-        <item>Boston (BOS)</item>
-        <item>Philadelphia (PHL)</item>
-        <item>Washington, D.C. (IAD)</item>
-        <item>Phoenix (PHX)</item>
-        <item>Orlando (MCO)</item>
         <item>Minneapolis (MSP)</item>
-        <item>Detroit (DTW)</item>
+        <item>Moscow (SVO)</item>
+        <item>Mumbai (BOM)</item>
+        <item>Munich (MUC)</item>
+        <item>New Delhi (DEL)</item>
+        <item>New York (NYC)</item>
+        <item>Newark (EWR)</item>
+        <item>Orlando (MCO)</item>
+        <item>Paris (PAR)</item>
+        <item>Philadelphia (PHL)</item>
+        <item>Phoenix (PHX)</item>
+        <item>Rio de Janeiro (GIG)</item>
+        <item>Rome (FCO)</item>
+        <item>Sao Paulo (GRU)</item>
+        <item>San Francisco (SFO)</item>
+        <item>Seattle (SEA)</item>
+        <item>Seoul (ICN)</item>
+        <item>Shanghai (PVG)</item>
+        <item>Singapore (SIN)</item>
+        <item>Sydney (SYD)</item>
+        <item>Tokyo (TYO)</item>
+        <item>Toronto (YYZ)</item>
+        <item>Vancouver (YVR)</item>
+        <item>Vienna (VIE)</item>
+        <item>Washington, D.C. (IAD)</item>
+        <item>Zurich (ZRH)</item>
     </string-array>
 </resources>

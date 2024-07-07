@@ -127,7 +127,7 @@ public class UserInformationFragment extends Fragment {
             ((MainActivity) getActivity()).user.setImage(imageInByte);
 
             ((MainActivity) getActivity()).db.updateData(fName, lName, ph, em, ((MainActivity) getActivity()).username,imageInByte);
-            //((MainActivity) getActivity()).getSupportFragmentManager().popBackStack();
+            ((MainActivity) getActivity()).getSupportFragmentManager().popBackStack();
         });
 
     }

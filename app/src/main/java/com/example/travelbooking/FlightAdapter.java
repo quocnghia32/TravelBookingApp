@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -51,8 +52,14 @@ public class FlightAdapter extends
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(mContext);
-        View heroView = inflater.inflate(R.layout.flight_ticket, parent, false);
-        ViewHolder viewHolder = new ViewHolder(heroView);
+        View flightView = inflater.inflate(R.layout.flight_ticket, parent, false);
+        ViewHolder viewHolder = new ViewHolder(flightView);
+        flightView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(mContext, "Flight Selected is " + viewHolder.mNumber.getText(), Toast.LENGTH_SHORT).show();
+            }
+        });
         return viewHolder;
     }
 
@@ -73,6 +80,7 @@ public class FlightAdapter extends
     public int getItemCount() {
         return mFlights.size();
     }
+
 
 
 }
