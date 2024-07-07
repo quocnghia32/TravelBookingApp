@@ -1,6 +1,7 @@
 package com.example.travelbooking;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -58,6 +59,10 @@ public class FlightAdapter extends
             @Override
             public void onClick(View v) {
                 Toast.makeText(mContext, "Flight Selected is " + viewHolder.mNumber.getText(), Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(mContext, SelectSeatActivity.class);
+                intent.putExtra("flightID", viewHolder.mNumber.getText());
+                mContext.startActivity(intent);
+
             }
         });
         return viewHolder;

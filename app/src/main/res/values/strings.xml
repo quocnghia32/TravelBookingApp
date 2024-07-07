@@ -60,4 +60,8 @@
         <item>Washington, D.C. (IAD)</item>
         <item>Zurich (ZRH)</item>
     </string-array>
+    <string-array name="range_slider">
+        <item>50</item>
+        <item>250</item>
+    </string-array>
 </resources>

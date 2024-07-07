@@ -1,10 +1,394 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FilterActivity">
+    android:orientation="vertical"
+    tools:context=".FilterActivity"
+    tools:ignore="HardcodedText">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <FrameLayout
+        android:id="@+id/filter_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/poppins_bold"
+            android:gravity="center"
+            android:text="Filters"
+            android:textSize="20sp" />
+
+        <ImageButton
+            android:id="@+id/back_button_flights"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="start"
+            android:background="@drawable/back_button"
+            android:backgroundTint="@color/black"
+            android:scaleType="center"
+            android:scaleX="0.7"
+            android:scaleY="0.7" />
+    </FrameLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="1dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Departure"
+        android:textColor="@color/text_primary"
+        android:textSize="16sp" />
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioGroup
+            android:id="@+id/departTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/AM12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/radio_button_selector"
+                android:button="@null"
+                android:checked="true"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="8dp"
+                android:text="12AM - 06AM"
+                android:textColor="@color/radio_text_selector"
+                android:textSize="16sp" />
+
+            <RadioButton
+                android:id="@+id/AM06"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/radio_button_selector"
+                android:button="@null"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="8dp"
+                android:text="06AM - 12PM"
+                android:textColor="@color/radio_text_selector"
+                android:textSize="16sp" />
+
+            <RadioButton
+                android:id="@+id/PM12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/radio_button_selector"
+                android:button="@null"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="8dp"
+                android:text="12PM - 06PM"
+                android:textColor="@color/radio_text_selector"
+                android:textSize="16sp" />
+
+            <RadioButton
+                android:id="@+id/PM06"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/radio_button_selector"
+                android:button="@null"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="8dp"
+                android:text="06PM - 12AM"
+                android:textColor="@color/radio_text_selector"
+                android:textSize="16sp" />
+        </RadioGroup>
+    </HorizontalScrollView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Arrival"
+        android:textColor="@color/text_primary"
+        android:textSize="16sp" />
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioGroup
+            android:id="@+id/arrivalTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/To12AM"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/radio_button_selector"
+                android:button="@null"
+                android:checked="true"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="8dp"
+                android:text="12AM - 06AM"
+                android:textColor="@color/radio_text_selector"
+                android:textSize="16sp" />
+
+            <RadioButton
+                android:id="@+id/To06AM"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/radio_button_selector"
+                android:button="@null"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="8dp"
+                android:text="06AM - 12PM"
+                android:textColor="@color/radio_text_selector"
+                android:textSize="16sp" />
+
+            <RadioButton
+                android:id="@+id/To12PM"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/radio_button_selector"
+                android:button="@null"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="8dp"
+                android:text="12PM - 06PM"
+                android:textColor="@color/radio_text_selector"
+                android:textSize="16sp" />
+
+            <RadioButton
+                android:id="@+id/To06PM"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/radio_button_selector"
+                android:button="@null"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="8dp"
+                android:text="06PM - 12AM"
+                android:textColor="@color/radio_text_selector"
+                android:textSize="16sp" />
+        </RadioGroup>
+    </HorizontalScrollView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Price"
+        android:textColor="@color/text_primary"
+        android:textSize="16sp" />
+
+    <com.google.android.material.slider.RangeSlider
+        android:id="@+id/priceSlider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:valueFrom="0"
+        android:valueTo="300"
+        app:haloColor="@color/peach50"
+        app:labelStyle="@null"
+        app:minSeparation="10dp"
+        app:thumbColor="@color/peach300"
+        app:thumbStrokeColor="@color/black"
+        app:thumbStrokeWidth="1dp"
+        app:tickVisible="false"
+        app:trackColorActive="@color/green700"
+        app:trackColorInactive="@color/green50"
+        app:trackHeight="7dp"
+        app:labelBehavior="gone"
+        app:values="@array/range_slider"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/priceFrom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_layout"
+                android:fontFamily="@font/poppins"
+                android:paddingStart="20dp"
+                android:paddingTop="25dp"
+                android:paddingBottom="5dp"
+                android:textColor="@color/text_primary"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:paddingStart="15dp"
+                android:paddingTop="7dp"
+                android:text="From"
+                android:textColor="@color/text_secondary"
+                android:textSize="11sp" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/priceTo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_layout"
+                android:fontFamily="@font/poppins"
+                android:paddingStart="20dp"
+                android:paddingTop="25dp"
+                android:paddingBottom="5dp"
+                android:textColor="@color/text_primary"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:paddingStart="15dp"
+                android:paddingTop="7dp"
+                android:text="Return"
+                android:textColor="@color/text_secondary"
+                android:textSize="11sp" />
+        </FrameLayout>
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Sort by"
+        android:textColor="@color/text_primary"
+        android:textSize="16sp" />
+
+    <RadioGroup
+        android:id="@+id/orderGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="0dp"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/toTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Arrival time"
+            app:buttonTint="@color/green500" />
+
+        <RadioButton
+            android:id="@+id/fromTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Departure time"
+            app:buttonTint="@color/green500" />
+
+        <RadioButton
+            android:id="@+id/price_filter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Price"
+            app:buttonTint="@color/green500" />
+
+        <RadioButton
+            android:id="@+id/lFare"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Lowest fare"
+            app:buttonTint="@color/green500" />
+
+        <RadioButton
+            android:id="@+id/duration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Duration"
+            app:buttonTint="@color/green500" />
+    </RadioGroup>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/resetFilter"
+            style="@style/buttonStyle"
+            android:layout_width="match_parent"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/white"
+            android:text="Reset"
+            android:textColor="@color/peach300" />
+
+        <Button
+            android:id="@+id/applyFilter"
+            style="@style/buttonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="15dp"
+            android:layout_weight="1"
+            android:text="Done" />
+    </LinearLayout>
+</LinearLayout>

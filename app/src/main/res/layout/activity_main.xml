@@ -36,9 +36,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:itemIconSize="40dp"
+            android:layout_marginBottom="-30dp"
             app:menu="@menu/bottom_menu"
             app:itemRippleColor="@color/peach50"
             app:backgroundTint="@color/white"
+            app:itemBackground="@color/white"
+            app:background="@color/white"
+            android:foregroundTint="@color/white"
             app:itemIconTint="@color/item_bottomnav"
             app:itemTextColor="@color/item_bottomnav"
             />

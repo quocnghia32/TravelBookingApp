@@ -36,6 +36,9 @@ public class WelcomeActivity extends AppCompatActivity {
         });
         registerButton.setOnClickListener(v -> {
             MyDatabaseHelper db = new MyDatabaseHelper(this);
+            db.deleteAllData();
+
+
 
 
 

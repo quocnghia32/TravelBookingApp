@@ -125,7 +125,7 @@
                     android:paddingStart="20dp"
                     android:paddingTop="25dp"
                     android:paddingBottom="5dp"
-                    android:textColor="@color/ui_dark"
+                    android:textColor="@color/text_primary"
                     android:textSize="15sp" />
 
                 <TextView
@@ -135,7 +135,7 @@
                     android:paddingStart="15dp"
                     android:paddingTop="7dp"
                     android:text="Departure"
-                    android:textColor="@color/ui_gray"
+                    android:textColor="@color/text_secondary"
                     android:textSize="11sp" />
             </FrameLayout>
 
@@ -157,7 +157,7 @@
                     android:paddingStart="20dp"
                     android:paddingTop="25dp"
                     android:paddingBottom="5dp"
-                    android:textColor="@color/ui_dark"
+                    android:textColor="@color/text_primary"
                     android:textSize="15sp" />
 
                 <TextView
@@ -167,7 +167,7 @@
                     android:paddingStart="15dp"
                     android:paddingTop="7dp"
                     android:text="Return"
-                    android:textColor="@color/ui_gray"
+                    android:textColor="@color/text_secondary"
                     android:textSize="11sp" />
             </FrameLayout>
         </LinearLayout>

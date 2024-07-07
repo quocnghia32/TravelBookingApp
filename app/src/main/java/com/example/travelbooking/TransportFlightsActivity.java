@@ -30,13 +30,20 @@ public class TransportFlightsActivity extends AppCompatActivity {
     String from3Letters, fromFull, to3Letters, toFull;
     private HorizontalScrollView scrollView;
 
-    private ArrayList<Flight> mFlights;
+    private ArrayList<Flight> mFlights, totalFlights;
     private RecyclerView mRecyclerFlight;
     private FlightAdapter mFlightAdapter;
 
     private MyDatabaseHelper db;
     private int year, month, day;
     ImageButton filterButton;
+    private static final int GET_RESULT = 2510;
+
+    int lowPrice = 0, highPrice = 300;
+    int lowTime = 0, highTime = 24;
+    boolean isSortingOnPrice = false;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +76,7 @@ public class TransportFlightsActivity extends AppCompatActivity {
         mRecyclerFlight = findViewById(R.id.flights_recycler_view);
         filterButton = findViewById(R.id.filter);
         mFlights = new ArrayList<>();
+        totalFlights = new ArrayList<>();
         db = new MyDatabaseHelper(this);
 
         weeklyView.setMonthYear(year, month);
@@ -84,11 +92,35 @@ public class TransportFlightsActivity extends AppCompatActivity {
         mRecyclerFlight.setLayoutManager(new LinearLayoutManager(this));
 
         filterButton.setOnClickListener(v -> {
-            Fragment homeFragment = new HomeFragment();
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerFlight, homeFragment).commit();
+            //intent for filter activity to get the result, including lowPrice, highPrice, lowTime, highTime, isSortingOnPrice
+            Intent filterIntent = new Intent(this, FilterActivity.class);
+            filterIntent.putExtra("lowPrice", lowPrice);
+            filterIntent.putExtra("highPrice", highPrice);
+            filterIntent.putExtra("lowTime", lowTime);
+            filterIntent.putExtra("highTime", highTime);
+            filterIntent.putExtra("isSortingOnPrice", isSortingOnPrice);
+            startActivityForResult(filterIntent, GET_RESULT);
         });
 
     }
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == GET_RESULT) {
+            if (resultCode == RESULT_OK) {
+                lowPrice = data.getIntExtra("lowPrice", 0);
+                highPrice = data.getIntExtra("highPrice", 300);
+                lowTime = data.getIntExtra("lowTime", 0);
+                highTime = data.getIntExtra("highTime", 24);
+                isSortingOnPrice = data.getBooleanExtra("isSortingOnPrice", false);
+                filterFlight();
+                numFlights.setText(mFlights.size() + " flights available " + fromFull + " to " + toFull);
+                mFlightAdapter = new FlightAdapter(this,mFlights);
+                mRecyclerFlight.setAdapter(mFlightAdapter);
+                mRecyclerFlight.setLayoutManager(new LinearLayoutManager(this));
+            }
+        }
+    }
+
 
     @Override
     protected void onPause() {
@@ -98,7 +130,7 @@ public class TransportFlightsActivity extends AppCompatActivity {
     private void setListFlight(String date, String from, String to) {
         Log.i("TransportFlightsActivity111", "setListFlight()");
         Cursor cursor = db.readFlights(year, month, date, from, to);
-        mFlights.clear();
+        totalFlights.clear();
         if(cursor.getCount() != 0) {
             while(cursor.moveToNext()) {
                 String flight_id = cursor.getString(0);
@@ -109,12 +141,45 @@ public class TransportFlightsActivity extends AppCompatActivity {
                 String flight_date = cursor.getString(5);
                 String flight_time = cursor.getString(6);
                 String flight_price = cursor.getString(7);
-                mFlights.add(new Flight(flight_id, flight_from, flight_3lfrom, flight_to, flight_3lto, flight_date, flight_time, flight_price));
+                totalFlights.add(new Flight(flight_id, flight_from, flight_3lfrom, flight_to, flight_3lto, flight_date, flight_time, flight_price));
             }
         }
+        filterFlight();
         numFlights.setText(mFlights.size() + " flights available " + fromFull + " to " + toFull);
         mFlightAdapter = new FlightAdapter(this,mFlights);
         mRecyclerFlight.setAdapter(mFlightAdapter);
         mRecyclerFlight.setLayoutManager(new LinearLayoutManager(this));
+    }
+    private void filterFlight() {
+        mFlights.clear();
+        for (Flight flight : totalFlights) {
+            int price = Integer.parseInt(flight.getFlightPrice().substring(1));
+            if (price < lowPrice || price > highPrice) continue;
+            String time = flight.getFlightTime();
+            int hour = Integer.parseInt(time.substring(0, time.indexOf(":")));
+            if (hour == 12) hour = 0;
+            if (time.contains("PM")) hour += 12;
+            if (hour < lowTime || hour > highTime) continue;
+            mFlights.add(flight);
+        }
+        if (isSortingOnPrice) {
+            mFlights.sort((o1, o2) -> {
+                int price1 = Integer.parseInt(o1.getFlightPrice().substring(1));
+                int price2 = Integer.parseInt(o2.getFlightPrice().substring(1));
+                return price1 - price2;
+            });
+        } else {
+            mFlights.sort((o1, o2) -> {
+                String time1 = o1.getFlightTime();
+                String time2 = o2.getFlightTime();
+                int hour1 = Integer.parseInt(time1.substring(0, time1.indexOf(":")));
+                int hour2 = Integer.parseInt(time2.substring(0, time2.indexOf(":")));
+                if (hour1 == 12) hour1 = 0;
+                if (time1.contains("PM")) hour1 += 12;
+                if (hour2 == 12) hour2 = 0;
+                if (time2.contains("PM")) hour2 += 12;
+                return hour1 - hour2;
+            });
+        }
     }
 }

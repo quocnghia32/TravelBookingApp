@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:text="New York"
         android:textColor="@color/text_primary"
-        android:textSize="14sp"
+        android:textSize="13sp"
         android:fontFamily="@font/poppins_medium"
         app:layout_constraintStart_toStartOf="@+id/from3Letters"
         app:layout_constraintTop_toBottomOf="@+id/from3Letters" />
@@ -36,7 +36,7 @@
         android:id="@+id/to3Letters"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="80dp"
+        android:layout_marginEnd="90dp"
         android:fontFamily="@font/poppins_medium"
         android:text="LDN"
         android:textColor="@color/green700"
@@ -50,7 +50,7 @@
         android:layout_height="wrap_content"
         android:text="New York"
         android:textColor="@color/text_primary"
-        android:textSize="14sp"
+        android:textSize="13sp"
         android:fontFamily="@font/poppins_medium"
         app:layout_constraintStart_toStartOf="@+id/to3Letters"
         app:layout_constraintTop_toTopOf="@id/fromFull" />

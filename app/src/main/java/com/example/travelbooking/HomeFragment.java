@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class HomeFragment extends Fragment {
+    BottomNavigationView bottomNavigationView;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -28,6 +29,7 @@ public class HomeFragment extends Fragment {
         ImageButton hotelButton = view.findViewById(R.id.hotel_button);
         ImageButton eventButton = view.findViewById(R.id.event_button);
         ImageButton tripButton = view.findViewById(R.id.trips_button);
+        bottomNavigationView = (BottomNavigationView) ((MainActivity) getActivity()).findViewById(R.id.bottomNavigationView);
 
         // Set an OnClickListener on the button
         searchButton.setOnClickListener(new View.OnClickListener() {
@@ -38,8 +40,6 @@ public class HomeFragment extends Fragment {
             }
         });
         transportButton.setOnClickListener(v -> {
-            BottomNavigationView bottomNavigationView;
-            bottomNavigationView = (BottomNavigationView) ((MainActivity) getActivity()).findViewById(R.id.bottomNavigationView);
             bottomNavigationView.setSelectedItemId(R.id.BookingB);
             ((MainActivity) getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new TransportBookingFragment()).addToBackStack(null).commit();
         });
@@ -55,8 +55,6 @@ public class HomeFragment extends Fragment {
         return view;
     }
     private void setNoneFragment() {
-        BottomNavigationView bottomNavigationView;
-        bottomNavigationView = (BottomNavigationView) ((MainActivity) getActivity()).findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setSelectedItemId(R.id.BookingB);
         ((MainActivity) getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new NotAvailableFragment()).addToBackStack(null).commit();
     }
