@@ -78,7 +78,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/filter_icon"
+            android:src="@drawable/filter_flights"
             android:background="@null"
             android:scaleType="fitCenter"
             android:scaleX="0.7"

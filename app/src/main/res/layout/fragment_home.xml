@@ -53,7 +53,7 @@
                 android:layout_marginBottom="5dp"
                 android:background="@null"
                 android:scaleType="fitCenter"
-                android:src="@drawable/home_search" />
+                android:src="@drawable/search_home" />
         </LinearLayout>
 
         <TextView
@@ -79,7 +79,7 @@
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:layout_marginTop="-30dp"
-                    android:background="@drawable/home_trips"
+                    android:background="@drawable/trips_home"
                     android:scaleType="center"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -111,7 +111,7 @@
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:layout_marginTop="-30dp"
-                    android:background="@drawable/home_hotel"
+                    android:background="@drawable/hotel_home"
                     android:scaleType="center"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -142,7 +142,7 @@
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:layout_marginTop="-30dp"
-                    android:background="@drawable/home_transport"
+                    android:background="@drawable/transport_home"
                     android:scaleType="center"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -173,7 +173,7 @@
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:layout_marginTop="-30dp"
-                    android:background="@drawable/home_event"
+                    android:background="@drawable/event_home"
                     android:scaleType="center"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"

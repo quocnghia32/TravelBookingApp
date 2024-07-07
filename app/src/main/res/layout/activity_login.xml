@@ -196,19 +196,19 @@
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:layout_margin="12dp"
-                    android:background="@drawable/login_logofacebook" />
+                    android:background="@drawable/facebook_login" />
 
                 <ImageView
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:layout_margin="12dp"
-                    android:background="@drawable/login_logogoogle" />
+                    android:background="@drawable/google_login" />
 
                 <ImageView
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:layout_margin="12dp"
-                    android:background="@drawable/login_logoapple" />
+                    android:background="@drawable/apple_login" />
 
 
             </LinearLayout>

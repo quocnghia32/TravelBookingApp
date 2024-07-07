@@ -20,7 +20,7 @@
         <item name="android:layout_marginLeft">10dp</item>
         <item name="android:layout_marginRight">10dp</item>
         <item name="android:layout_height">100dp</item>
-        <item name="android:drawableStart">@drawable/exit_icon</item>
+        <item name="android:drawableStart">@drawable/exit_icon_account</item>
         <item name="android:drawableTint">@color/alert_error</item>
     </style>
 

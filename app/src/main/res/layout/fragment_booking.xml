@@ -37,7 +37,7 @@
                     android:layout_margin="5dp"
                     android:background="@null"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/booking_hotel" />
+                    android:src="@drawable/hotel_booking" />
 
                 <ImageButton
                     android:id="@+id/booking_transport"
@@ -46,7 +46,7 @@
                     android:layout_margin="5dp"
                     android:background="@null"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/booking_transport" />
+                    android:src="@drawable/transport_transbooking" />
 
                 <ImageButton
                     android:id="@+id/booking_trips"
@@ -55,7 +55,7 @@
                     android:layout_margin="5dp"
                     android:background="@null"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/booking_trips" />
+                    android:src="@drawable/trips_booking" />
 
                 <ImageButton
                     android:id="@+id/booking_event"
@@ -64,7 +64,7 @@
                     android:layout_margin="5dp"
                     android:background="@null"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/booking_event" />
+                    android:src="@drawable/event_booking" />
             </LinearLayout>
         </ScrollView>
     </LinearLayout>
