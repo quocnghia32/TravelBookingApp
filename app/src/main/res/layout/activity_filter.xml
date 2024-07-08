@@ -146,6 +146,7 @@
             android:orientation="horizontal">
 
             <RadioButton
+                android:id="@+id/ToAM12_Filter"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/radio_button_selector"
@@ -160,6 +161,7 @@
                 android:textSize="16sp" />
 
             <RadioButton
+                android:id="@+id/ToAM06_Filter"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -174,6 +176,7 @@
                 android:textSize="16sp" />
 
             <RadioButton
+                android:id="@+id/ToPM12_Filter"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -188,6 +191,7 @@
                 android:textSize="16sp" />
 
             <RadioButton
+                android:id="@+id/ToPM06_Filter"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -200,6 +204,7 @@
                 android:text="06PM - 12AM"
                 android:textColor="@color/radio_text_selector"
                 android:textSize="16sp" />
+
         </RadioGroup>
     </HorizontalScrollView>
 

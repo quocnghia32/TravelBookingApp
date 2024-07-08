@@ -1,12 +1,14 @@
 package com.example.travelbooking;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -36,6 +38,7 @@ public class SelectSeatActivity extends AppCompatActivity implements View.OnClic
     ArrayList<String> seatsBooked = new ArrayList<>();
     ArrayList<Integer> seatsSelected = new ArrayList<>();
     ImageButton backButton;
+    Button continue_button;
     String flightNumber, from, from3Letters, to, to3Letters, date, time, price, classType;
     int realPrice = 1, numAdults = 1;
     int numSeatChoosen = 0;
@@ -70,13 +73,47 @@ public class SelectSeatActivity extends AppCompatActivity implements View.OnClic
         backButton = findViewById(R.id.back_button_Seat);
         totalSeatText = findViewById(R.id.total_seat_Seat);
         totalPriceText = findViewById(R.id.total_price_Seat);
+        continue_button = findViewById(R.id.comfirm_Seat);
 
-
+        seatsBooked.add("1A");
+        seatsBooked.add("2B");
+        seatsBooked.add("3D");
+        seatsBooked.add("1D");
+        seatsBooked.add("4A");
+        seatsBooked.add("2C");
+        seatsBooked.add("5A");
+        seatsBooked.add("5B");
         for (int i = 0; i < numAdults; i++) seatsSelected.add(-1);
         createPassengersList();
         createSeatsList();
 
         backButton.setOnClickListener(v -> {
+            finish();
+        });
+        continue_button.setOnClickListener(v -> {
+            if (numSeatChoosen < numAdults){
+                Toast.makeText(this, "Please choose seat for all passengers", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            selectedIds = "";
+            for (int i = 0; i < seatsSelected.size(); i++){
+                selectedIds += convertCountToID(seatsSelected.get(i));
+                if (i != seatsSelected.size() - 1) selectedIds += ", ";
+            }
+            Intent intent = new Intent(this, BoardingPassActivity.class);
+            intent.putExtra("flightNumber", flightNumber);
+            intent.putExtra("from", from);
+            intent.putExtra("from3Letters", from3Letters);
+            intent.putExtra("to", to);
+            intent.putExtra("to3Letters", to3Letters);
+            intent.putExtra("date", date);
+            intent.putExtra("time", time);
+            intent.putExtra("price", price);
+            intent.putExtra("class", classType);
+            intent.putExtra("numAdults", numAdults);
+            intent.putExtra("seats", selectedIds);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
             finish();
         });
     }

@@ -57,7 +57,6 @@ public class FlightAdapter extends
         flightView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(mContext, "Flight Selected is " + viewHolder.mNumber.getText(), Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(mContext, SelectSeatActivity.class);
                 intent.putExtra("flightID", viewHolder.mNumber.getText());
                 intent.putExtra("flightNumber", viewHolder.mNumber.getText());
