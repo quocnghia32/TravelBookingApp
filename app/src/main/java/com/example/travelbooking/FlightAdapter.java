@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,14 +32,14 @@ public class FlightAdapter extends
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            m3lFrom = itemView.findViewById(R.id.from3Letters);
-            mFrom = itemView.findViewById(R.id.fromFull);
-            m3lTo = itemView.findViewById(R.id.to3Letters);
-            mTo = itemView.findViewById(R.id.toFull);
-            mDate = itemView.findViewById(R.id.dateText);
-            mTime = itemView.findViewById(R.id.timeText);
-            mPrice = itemView.findViewById(R.id.priceText);
-            mNumber = itemView.findViewById(R.id.numberText);
+            m3lFrom = itemView.findViewById(R.id.from3Letters_Ticket);
+            mFrom = itemView.findViewById(R.id.fromFull_Ticket);
+            m3lTo = itemView.findViewById(R.id.to3Letters_Ticket);
+            mTo = itemView.findViewById(R.id.toFull_Ticket);
+            mDate = itemView.findViewById(R.id.dateText_Ticket);
+            mTime = itemView.findViewById(R.id.timeText_Ticket);
+            mPrice = itemView.findViewById(R.id.priceText_Ticket);
+            mNumber = itemView.findViewById(R.id.numberText_Ticket);
         }
 
     }

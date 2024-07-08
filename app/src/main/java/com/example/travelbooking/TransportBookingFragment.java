@@ -46,8 +46,8 @@ public class TransportBookingFragment extends Fragment {
     public void onResume() {
         super.onResume();
         //Set Array Adapter for AutoCompleteTextView
-        autoCompleteTextView = getView().findViewById(R.id.FromSelection);
-        autoCompleteTextView2 = getView().findViewById(R.id.ToSelection);
+        autoCompleteTextView = getView().findViewById(R.id.FromSelection_TransBooking);
+        autoCompleteTextView2 = getView().findViewById(R.id.ToSelection_TransBooking);
         destinations = getResources().getStringArray(R.array.destinations);
 
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getContext(), R.layout.dropdown_item, destinations);
@@ -56,12 +56,12 @@ public class TransportBookingFragment extends Fragment {
         autoCompleteTextView.setAdapter(arrayAdapter);
         autoCompleteTextView2.setAdapter(arrayAdapter2);
 
-        ImageButton back = getView().findViewById(R.id.back_button);
-        ImageButton swap = getView().findViewById(R.id.swap_button);
-        radioFlight = getView().findViewById(R.id.radioFlight);
-        ecoClass = getView().findViewById(R.id.economy);
-        busClass = getView().findViewById(R.id.business);
-        classGroup = getView().findViewById(R.id.classGroup);
+        ImageButton back = getView().findViewById(R.id.back_button_TransBooking);
+        ImageButton swap = getView().findViewById(R.id.swap_button_TransBooking);
+        radioFlight = getView().findViewById(R.id.radioFlight_TransBooking);
+        ecoClass = getView().findViewById(R.id.economy_TransBooking);
+        busClass = getView().findViewById(R.id.business_TransBooking);
+        classGroup = getView().findViewById(R.id.classGroup_TransBooking);
 
         //Back Button
         back.setOnClickListener(v -> {
@@ -79,8 +79,8 @@ public class TransportBookingFragment extends Fragment {
         });
 
         //Date Picker
-        TextView fromDate = getView().findViewById(R.id.FromDate);
-        TextView toDate = getView().findViewById(R.id.ToDate);
+        TextView fromDate = getView().findViewById(R.id.FromDate_TransBooking);
+        TextView toDate = getView().findViewById(R.id.ToDate_TransBooking);
         Calendar calendarFrom = Calendar.getInstance();
         Calendar calendarTo = Calendar.getInstance();
 
@@ -135,7 +135,7 @@ public class TransportBookingFragment extends Fragment {
         });
 
         //Search Button
-        Button search = getView().findViewById(R.id.search_booking);
+        Button search = getView().findViewById(R.id.search_TransBooking);
         search.setOnClickListener(v -> {
             //search if the from and to location is valid
             int pos1 = getFromResouce(autoCompleteTextView.getText().toString());
@@ -174,8 +174,8 @@ public class TransportBookingFragment extends Fragment {
     }
 
     private void resetArray() {
-        autoCompleteTextView= getView().findViewById(R.id.FromSelection);
-        autoCompleteTextView2 = getView().findViewById(R.id.ToSelection);
+        autoCompleteTextView= getView().findViewById(R.id.FromSelection_TransBooking);
+        autoCompleteTextView2 = getView().findViewById(R.id.ToSelection_TransBooking);
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getContext(), R.layout.dropdown_item, destinations);
         ArrayAdapter<String> arrayAdapter2 = new ArrayAdapter<>(getContext(), R.layout.dropdown_item, destinations);
         autoCompleteTextView.setAdapter(arrayAdapter);

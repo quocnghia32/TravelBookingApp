@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="10dp"
     tools:context=".UserInformationFragment"
     tools:ignore="HardcodedText">
@@ -26,7 +26,7 @@
                 android:textSize="20sp" />
 
             <ImageButton
-                android:id="@+id/back_button_account"
+                android:id="@+id/back_button_Infor"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_gravity="start"
@@ -40,37 +40,37 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <FrameLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center">
+
                 <androidx.cardview.widget.CardView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:cardCornerRadius="30dp">
 
                     <ImageView
-                        android:id="@+id/profile_pic"
+                        android:id="@+id/profile_pic_Infor"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:layout_gravity="center"
                         android:scaleType="fitCenter"
-                        android:src="@drawable/cus_bigger"
-                        />
+                        android:src="@drawable/cus_bigger" />
                 </androidx.cardview.widget.CardView>
 
             </FrameLayout>
 
             <ImageButton
-                android:id="@+id/add_image"
+                android:id="@+id/add_image_Infor"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@drawable/addimage_infor"
-                android:layout_marginLeft="35dp"
-                android:scaleType="fitCenter"
-                android:background="@null"
                 android:layout_gravity="center|bottom"
-                />
+                android:layout_marginLeft="35dp"
+                android:background="@null"
+                android:scaleType="fitCenter"
+                android:src="@drawable/addimage_infor" />
 
         </FrameLayout>
 
@@ -81,7 +81,7 @@
             android:textColorHint="@color/ui_gray">
 
             <EditText
-                android:id="@+id/firstname"
+                android:id="@+id/firstname_Infor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
@@ -103,7 +103,7 @@
             android:textColorHint="@color/ui_gray">
 
             <EditText
-                android:id="@+id/lastname"
+                android:id="@+id/lastname_Infor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
@@ -125,7 +125,7 @@
             android:textColorHint="@color/ui_gray">
 
             <EditText
-                android:id="@+id/phone"
+                android:id="@+id/phone_Infor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
@@ -147,7 +147,7 @@
             android:textColorHint="@color/ui_gray">
 
             <EditText
-                android:id="@+id/email"
+                android:id="@+id/email_Infor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
@@ -163,7 +163,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/save_button"
+            android:id="@+id/save_button_Infor"
             style="@style/buttonStyle"
             android:layout_width="match_parent"
             android:layout_marginHorizontal="10dp"

@@ -9,7 +9,6 @@
     tools:ignore="hardcodedText">
 
     <LinearLayout
-        android:id="@+id/textWelcome_Login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -27,7 +26,7 @@
                 android:textSize="20sp" />
 
             <ImageButton
-                android:id="@+id/back_button"
+                android:id="@+id/back_button_TransBooking"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_gravity="start"
@@ -60,7 +59,7 @@
                 app:endIconTint="@color/white">
 
                 <AutoCompleteTextView
-                    android:id="@+id/FromSelection"
+                    android:id="@+id/FromSelection_TransBooking"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1" />
@@ -83,7 +82,7 @@
                 app:endIconTint="@color/white">
 
                 <AutoCompleteTextView
-                    android:id="@+id/ToSelection"
+                    android:id="@+id/ToSelection_TransBooking"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1" />
@@ -91,7 +90,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <ImageButton
-                android:id="@+id/swap_button"
+                android:id="@+id/swap_button_TransBooking"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
                 android:layout_gravity="end"
@@ -116,7 +115,7 @@
                 android:layout_weight="1">
 
                 <TextView
-                    android:id="@+id/FromDate"
+                    android:id="@+id/FromDate_TransBooking"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/edittext_layout"
@@ -148,7 +147,7 @@
                 android:layout_weight="1">
 
                 <TextView
-                    android:id="@+id/ToDate"
+                    android:id="@+id/ToDate_TransBooking"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/edittext_layout"
@@ -266,7 +265,7 @@
             android:textSize="14sp" />
 
         <RadioGroup
-            android:id="@+id/classGroup"
+            android:id="@+id/classGroup_TransBooking"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -274,7 +273,7 @@
             android:orientation="horizontal">
 
             <RadioButton
-                android:id="@+id/economy"
+                android:id="@+id/economy_TransBooking"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/radio_button_selector"
@@ -289,7 +288,7 @@
                 android:textSize="16sp" />
 
             <RadioButton
-                android:id="@+id/business"
+                android:id="@+id/business_TransBooking"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -316,7 +315,7 @@
             android:textSize="14sp" />
 
         <RadioGroup
-            android:id="@+id/transportGroup"
+            android:id="@+id/transportGroup_TransBooking"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -324,7 +323,7 @@
             android:orientation="horizontal">
 
             <RadioButton
-                android:id="@+id/radioFlight"
+                android:id="@+id/radioFlight_TransBooking"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/radio_button_selector"
@@ -339,7 +338,7 @@
                 android:scaleY="0.7" />
 
             <RadioButton
-                android:id="@+id/radioBoat"
+                android:id="@+id/radioBoat_TransBooking"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="0dp"
@@ -355,7 +354,7 @@
                 android:scaleY="0.7" />
 
             <RadioButton
-                android:id="@+id/radioTrain"
+                android:id="@+id/radioTrain_TransBooking"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="0dp"
@@ -371,7 +370,7 @@
                 android:scaleY="0.7" />
 
             <RadioButton
-                android:id="@+id/radioBus"
+                android:id="@+id/radioBus_TransBooking"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="0dp"
@@ -389,7 +388,7 @@
         </RadioGroup>
 
         <Button
-            android:id="@+id/search_booking"
+            android:id="@+id/search_TransBooking"
             style="@style/buttonStyle"
             android:layout_width="match_parent"
             android:layout_marginHorizontal="10dp"

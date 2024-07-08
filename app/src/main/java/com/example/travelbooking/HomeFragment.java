@@ -21,12 +21,12 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home,
                 container, false);
-        ImageButton searchButton = view.findViewById(R.id.search_button);
-        EditText editText = view.findViewById(R.id.search_text);
-        ImageButton transportButton = view.findViewById(R.id.transport_button);
-        ImageButton hotelButton = view.findViewById(R.id.hotel_button);
-        ImageButton eventButton = view.findViewById(R.id.event_button);
-        ImageButton tripButton = view.findViewById(R.id.trips_button);
+        ImageButton searchButton = view.findViewById(R.id.search_button_Home);
+        EditText editText = view.findViewById(R.id.search_text_Home);
+        ImageButton transportButton = view.findViewById(R.id.transport_button_Home);
+        ImageButton hotelButton = view.findViewById(R.id.hotel_button_Home);
+        ImageButton eventButton = view.findViewById(R.id.event_button_Home);
+        ImageButton tripButton = view.findViewById(R.id.trips_button_Home);
         bottomNavigationView = (BottomNavigationView) ((MainActivity) getActivity()).findViewById(R.id.bottomNavigationView_Main);
 
         // Set an OnClickListener on the button

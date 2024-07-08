@@ -20,25 +20,25 @@
             android:gravity="center"
             android:text="Account"
             android:textSize="20sp" />
+
         <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:layout_gravity="center"
+            android:layout_marginTop="20dp"
             app:cardCornerRadius="30dp">
 
             <ImageView
-                android:id="@+id/account_image"
+                android:id="@+id/account_image_Account"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center"
                 android:scaleType="fitCenter"
-                android:src="@drawable/cus_bigger"
-                 />
+                android:src="@drawable/cus_bigger" />
         </androidx.cardview.widget.CardView>
 
         <TextView
-            android:id="@+id/account_name"
+            android:id="@+id/account_name_Account"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -48,7 +48,7 @@
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/infor"
+            android:id="@+id/personal_info_Account"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="-30dp"
@@ -67,7 +67,7 @@
             tools:ignore="RtlHardcoded" />
 
         <TextView
-            android:id="@+id/payment"
+            android:id="@+id/payment_Account"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="-30dp"
@@ -86,7 +86,7 @@
             tools:ignore="RtlHardcoded" />
 
         <TextView
-            android:id="@+id/saved"
+            android:id="@+id/save_Account"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="-30dp"
@@ -105,7 +105,7 @@
             tools:ignore="RtlHardcoded" />
 
         <TextView
-            android:id="@+id/history"
+            android:id="@+id/history_Account"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="-30dp"
@@ -124,7 +124,7 @@
             tools:ignore="RtlHardcoded" />
 
         <TextView
-            android:id="@+id/settings"
+            android:id="@+id/settings_Account"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="-30dp"
@@ -148,7 +148,7 @@
             android:layout_marginTop="50dp">
 
             <Button
-                android:id="@+id/end_button"
+                android:id="@+id/end_button_Account"
                 style="@style/buttonStyleEnd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

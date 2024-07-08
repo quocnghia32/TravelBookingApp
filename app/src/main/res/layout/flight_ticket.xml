@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="170dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/flight_ticket"
     android:layout_margin="15dp"
+    android:background="@drawable/flight_ticket"
     android:padding="10dp">
 
     <TextView
-        android:id="@+id/from3Letters"
+        android:id="@+id/from3Letters_Ticket"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -22,18 +22,18 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/fromFull"
+        android:id="@+id/fromFull_Ticket"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_medium"
         android:text="New York"
         android:textColor="@color/text_primary"
         android:textSize="13sp"
-        android:fontFamily="@font/poppins_medium"
-        app:layout_constraintStart_toStartOf="@+id/from3Letters"
-        app:layout_constraintTop_toBottomOf="@+id/from3Letters" />
+        app:layout_constraintStart_toStartOf="@+id/from3Letters_Ticket"
+        app:layout_constraintTop_toBottomOf="@+id/from3Letters_Ticket" />
 
     <TextView
-        android:id="@+id/to3Letters"
+        android:id="@+id/to3Letters_Ticket"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="90dp"
@@ -42,24 +42,25 @@
         android:textColor="@color/green700"
         android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/from3Letters" />
+        app:layout_constraintTop_toTopOf="@+id/from3Letters_Ticket" />
 
     <TextView
-        android:id="@+id/toFull"
+        android:id="@+id/toFull_Ticket"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_medium"
         android:text="New York"
         android:textColor="@color/text_primary"
         android:textSize="13sp"
-        android:fontFamily="@font/poppins_medium"
-        app:layout_constraintStart_toStartOf="@+id/to3Letters"
-        app:layout_constraintTop_toTopOf="@id/fromFull" />
+        app:layout_constraintStart_toStartOf="@+id/to3Letters_Ticket"
+        app:layout_constraintTop_toTopOf="@id/fromFull_Ticket" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_marginHorizontal="15dp"
         android:layout_marginBottom="8dp"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
@@ -69,94 +70,100 @@
 
             android:layout_weight="1"
             android:orientation="vertical">
+
             <TextView
-                android:id="@+id/date"
+                android:id="@+id/date_Ticket"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_medium"
                 android:text="Date"
                 android:textColor="@color/green700"
-                android:textSize="10sp"/>
+                android:textSize="10sp" />
 
             <TextView
-                android:id="@+id/dateText"
+                android:id="@+id/dateText_Ticket"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
                 android:text="02 Jun"
                 android:textColor="@color/text_primary"
-                android:textSize="14sp"
-                android:fontFamily="@font/poppins_medium"/>
+                android:textSize="14sp" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical">
+
             <TextView
-                android:id="@+id/time"
+                android:id="@+id/time_Ticket"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_medium"
                 android:text="Departure"
                 android:textColor="@color/green700"
-                android:textSize="10sp"/>
+                android:textSize="10sp" />
 
             <TextView
-                android:id="@+id/timeText"
+                android:id="@+id/timeText_Ticket"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
                 android:text="9:00 AM"
                 android:textColor="@color/text_primary"
-                android:textSize="14sp"
-                android:fontFamily="@font/poppins_medium"/>
+                android:textSize="14sp" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical">
+
             <TextView
-                android:id="@+id/price"
+                android:id="@+id/price_Ticket"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_medium"
                 android:text="Price"
                 android:textColor="@color/green700"
-                android:textSize="10sp"/>
+                android:textSize="10sp" />
 
             <TextView
-                android:id="@+id/priceText"
+                android:id="@+id/priceText_Ticket"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
                 android:text="$200"
                 android:textColor="@color/text_primary"
-                android:textSize="14sp"
-                android:fontFamily="@font/poppins_medium"/>
+                android:textSize="14sp" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <TextView
-                android:id="@+id/number"
+                android:id="@+id/number_Ticket"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_medium"
                 android:text="Number"
                 android:textColor="@color/green700"
-                android:textSize="10sp"/>
+                android:textSize="10sp" />
 
             <TextView
-                android:id="@+id/numberText"
+                android:id="@+id/numberText_Ticket"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
                 android:text="NL-41"
                 android:textColor="@color/text_primary"
-                android:textSize="14sp"
-                android:fontFamily="@font/poppins_medium"/>
+                android:textSize="14sp" />
+
         </LinearLayout>
-
-
 
     </LinearLayout>
 

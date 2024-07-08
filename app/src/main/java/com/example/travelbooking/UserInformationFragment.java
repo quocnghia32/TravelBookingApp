@@ -1,23 +1,18 @@
 package com.example.travelbooking;
 
-import static androidx.activity.result.ActivityResultLauncherKt.launch;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 
-import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,11 +20,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.github.dhaval2404.imagepicker.ImagePicker;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 
 import kotlin.Unit;
@@ -67,14 +60,14 @@ public class UserInformationFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_user_information, container, false);
 
-        firstName = view.findViewById(R.id.firstname);
-        lastName = view.findViewById(R.id.lastname);
-        phone = view.findViewById(R.id.phone);
-        email = view.findViewById(R.id.email);
-        saveButton = view.findViewById(R.id.save_button);
-        profilePicture = view.findViewById(R.id.profile_pic);
-        backButton = view.findViewById(R.id.back_button_account);
-        addImage = view.findViewById(R.id.add_image);
+        firstName = view.findViewById(R.id.firstname_Infor);
+        lastName = view.findViewById(R.id.lastname_Infor);
+        phone = view.findViewById(R.id.phone_Infor);
+        email = view.findViewById(R.id.email_Infor);
+        saveButton = view.findViewById(R.id.save_button_Infor);
+        profilePicture = view.findViewById(R.id.profile_pic_Infor);
+        backButton = view.findViewById(R.id.back_button_Infor);
+        addImage = view.findViewById(R.id.add_image_Infor);
         DB = new MyDatabaseHelper(getActivity());
 
         firstName.setText(((MainActivity) getActivity()).user.getFirstName());

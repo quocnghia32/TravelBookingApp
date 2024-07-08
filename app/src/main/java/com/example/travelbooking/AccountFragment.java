@@ -33,13 +33,13 @@ public class AccountFragment extends Fragment {
 
         View view = getView();
 
-        ImageView accountImage = view.findViewById(R.id.account_image);
-        TextView accountName = view.findViewById(R.id.account_name);
-        TextView information = view.findViewById(R.id.infor);
-        TextView payment = view.findViewById(R.id.payment);
-        TextView history = view.findViewById(R.id.history);
-        TextView setting = view.findViewById(R.id.settings);
-        TextView saved = view.findViewById(R.id.saved);
+        ImageView accountImage = view.findViewById(R.id.account_image_Account);
+        TextView accountName = view.findViewById(R.id.account_name_Account);
+        TextView information = view.findViewById(R.id.personal_info_Account);
+        TextView payment = view.findViewById(R.id.payment_Account);
+        TextView history = view.findViewById(R.id.history_Account);
+        TextView setting = view.findViewById(R.id.settings_Account);
+        TextView saved = view.findViewById(R.id.save_Account);
 
         User user = ((MainActivity) getActivity()).user;
 
@@ -70,7 +70,7 @@ public class AccountFragment extends Fragment {
         });
 
         // Set the onClickListener for the end button
-        Button end = view.findViewById(R.id.end_button);
+        Button end = view.findViewById(R.id.end_button_Account);
         end.setOnClickListener(v -> {
             Intent i = new Intent(getContext(), WelcomeActivity.class);
             i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
