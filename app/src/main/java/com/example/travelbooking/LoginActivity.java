@@ -12,7 +12,6 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import android.content.Intent;
-import android.view.View;
 import android.widget.Toast;
 import android.widget.EditText;
 
@@ -31,10 +30,10 @@ public class LoginActivity extends AppCompatActivity {
             return insets;
         });
 
-        ImageButton backButton = findViewById(R.id.back_button);
-        Button loginButton = findViewById(R.id.login_button);
-        EditText usernameEdit = findViewById(R.id.username);
-        EditText passwordEdit = findViewById(R.id.password);
+        ImageButton backButton = findViewById(R.id.back_button_Login);
+        Button loginButton = findViewById(R.id.signin_Login);
+        EditText usernameEdit = findViewById(R.id.usernameText_Login);
+        EditText passwordEdit = findViewById(R.id.passwordText_Login);
 
         backButton.setOnClickListener(v -> {
             finish();

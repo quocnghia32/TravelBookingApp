@@ -7,14 +7,12 @@ import android.util.Log;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -68,13 +66,13 @@ public class TransportFlightsActivity extends AppCompatActivity {
         selectedDate = String.valueOf(day);
         if (day < 10) selectedDate = "0" + selectedDate;
 
-        ImageButton back = findViewById(R.id.back_button_flights);
+        ImageButton back = findViewById(R.id.back_button_Flights);
         back.setOnClickListener(v -> finish());
-        scrollView = findViewById(R.id.horizontalScrollView);
+        scrollView = findViewById(R.id.horizontalScrollView_Flights);
         weeklyView = findViewById(R.id.weeklyView);
-        numFlights = findViewById(R.id.numFlight);
-        mRecyclerFlight = findViewById(R.id.flights_recycler_view);
-        filterButton = findViewById(R.id.filter);
+        numFlights = findViewById(R.id.numFlight_Flights);
+        mRecyclerFlight = findViewById(R.id.flights_recycler_view_Flights);
+        filterButton = findViewById(R.id.filter_Flights);
         mFlights = new ArrayList<>();
         totalFlights = new ArrayList<>();
         db = new MyDatabaseHelper(this);

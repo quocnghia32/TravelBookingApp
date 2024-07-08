@@ -2,8 +2,6 @@ package com.example.travelbooking;
 
 import android.content.Context;
 import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.util.Log;
@@ -50,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         // Set the home fragment as the default fragment
         replaceFragment(new HomeFragment());
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView_Main);
 
         bottomNavigationView.setOnItemSelectedListener(item -> {
             for (int i = fragmentManager.getBackStackEntryCount(); i > 0; i--) {
@@ -71,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
     private void replaceFragment(Fragment fragment) {
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, fragment).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer_Main, fragment).commit();
     }
 
     // Hide the keyboard and defocus when the user taps outside of an EditText

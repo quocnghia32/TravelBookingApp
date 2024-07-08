@@ -9,13 +9,12 @@
     tools:context=".TransportFlightsActivity">
 
     <FrameLayout
-        android:id="@+id/flights_toolbar"
+        android:id="@+id/flights_toolbar_Flights"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        >
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:layout_width="match_parent"
@@ -26,7 +25,7 @@
             android:textSize="20sp" />
 
         <ImageButton
-            android:id="@+id/back_button_flights"
+            android:id="@+id/back_button_Flights"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_gravity="start"
@@ -36,66 +35,64 @@
             android:scaleX="0.7"
             android:scaleY="0.7" />
     </FrameLayout>
+
     <HorizontalScrollView
-        android:id="@+id/horizontalScrollView"
+        android:id="@+id/horizontalScrollView_Flights"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/flights_toolbar"
+        android:fillViewport="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:fillViewport="true">
+        app:layout_constraintTop_toBottomOf="@+id/flights_toolbar_Flights">
 
         <com.example.travelbooking.WeeklyView
             android:id="@+id/weeklyView"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-        />
+            android:layout_height="wrap_content" />
 
     </HorizontalScrollView>
+
     <LinearLayout
-        android:id="@+id/numFlightLayout"
+        android:id="@+id/numFlightLayout_Flights"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        >
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView_Flights">
+
         <TextView
-            android:id="@+id/numFlight"
+            android:id="@+id/numFlight_Flights"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="8"
             android:fontFamily="@font/poppins"
             android:paddingLeft="10dp"
             android:text=""
-            android:layout_weight="8"
-            android:textSize="14sp"
-            android:layout_gravity="center"
             android:textColor="@android:color/black"
-        />
+            android:textSize="14sp" />
+
         <ImageButton
-            android:id="@+id/filter"
+            android:id="@+id/filter_Flights"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/filter_flights"
             android:background="@null"
             android:scaleType="fitCenter"
             android:scaleX="0.7"
             android:scaleY="0.7"
-            />
+            android:src="@drawable/filter_flights" />
     </LinearLayout>
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/flights_recycler_view"
+        android:id="@+id/flights_recycler_view_Flights"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/numFlightLayout"
-        />
-
+        app:layout_constraintTop_toBottomOf="@+id/numFlightLayout_Flights" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

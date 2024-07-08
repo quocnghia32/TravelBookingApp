@@ -2,7 +2,6 @@ package com.example.travelbooking;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
@@ -28,15 +27,15 @@ public class StartupActivity extends AppCompatActivity {
         onBoarding3Fragment onBoarding3Fragment = new onBoarding3Fragment();
 
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, onBoarding1Fragment).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer_Startup, onBoarding1Fragment).commit();
 
-        Button button = findViewById(R.id.startButton);
+        Button button = findViewById(R.id.startButton_Startup);
         button.setOnClickListener(v -> {
             if (getSupportFragmentManager().getBackStackEntryCount() == 0) {
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, onBoarding2Fragment).addToBackStack(null).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer_Startup, onBoarding2Fragment).addToBackStack(null).commit();
             } else if (getSupportFragmentManager().getBackStackEntryCount() == 1){
                 button.setText("Let's start");
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, onBoarding3Fragment).addToBackStack(null).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer_Startup, onBoarding3Fragment).addToBackStack(null).commit();
             } else {
                 Intent i = new Intent(StartupActivity.this, WelcomeActivity.class);
                 startActivity(i);

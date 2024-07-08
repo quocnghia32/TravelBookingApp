@@ -10,7 +10,6 @@
     tools:ignore="HardcodedText">
 
     <FrameLayout
-        android:id="@+id/filter_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -26,7 +25,7 @@
             android:textSize="20sp" />
 
         <ImageButton
-            android:id="@+id/back_button_flights"
+            android:id="@+id/back_button_Filter"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_gravity="start"
@@ -35,6 +34,7 @@
             android:scaleType="center"
             android:scaleX="0.7"
             android:scaleY="0.7" />
+
     </FrameLayout>
 
     <TextView
@@ -52,7 +52,7 @@
         android:layout_height="wrap_content">
 
         <RadioGroup
-            android:id="@+id/departTime"
+            android:id="@+id/departTime_Filter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -60,7 +60,7 @@
             android:orientation="horizontal">
 
             <RadioButton
-                android:id="@+id/AM12"
+                android:id="@+id/AM12_Filter"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/radio_button_selector"
@@ -75,7 +75,7 @@
                 android:textSize="16sp" />
 
             <RadioButton
-                android:id="@+id/AM06"
+                android:id="@+id/AM06_Filter"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -90,7 +90,7 @@
                 android:textSize="16sp" />
 
             <RadioButton
-                android:id="@+id/PM12"
+                android:id="@+id/PM12_Filter"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -105,7 +105,7 @@
                 android:textSize="16sp" />
 
             <RadioButton
-                android:id="@+id/PM06"
+                android:id="@+id/PM06_Filter"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -118,7 +118,9 @@
                 android:text="06PM - 12AM"
                 android:textColor="@color/radio_text_selector"
                 android:textSize="16sp" />
+
         </RadioGroup>
+
     </HorizontalScrollView>
 
     <TextView
@@ -136,7 +138,7 @@
         android:layout_height="wrap_content">
 
         <RadioGroup
-            android:id="@+id/arrivalTime"
+            android:id="@+id/arrivalTime_Filter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -144,7 +146,6 @@
             android:orientation="horizontal">
 
             <RadioButton
-                android:id="@+id/To12AM"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/radio_button_selector"
@@ -159,7 +160,6 @@
                 android:textSize="16sp" />
 
             <RadioButton
-                android:id="@+id/To06AM"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -174,7 +174,6 @@
                 android:textSize="16sp" />
 
             <RadioButton
-                android:id="@+id/To12PM"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -189,7 +188,6 @@
                 android:textSize="16sp" />
 
             <RadioButton
-                android:id="@+id/To06PM"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -216,7 +214,7 @@
         android:textSize="16sp" />
 
     <com.google.android.material.slider.RangeSlider
-        android:id="@+id/priceSlider"
+        android:id="@+id/priceSlider_Filter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -224,6 +222,7 @@
         android:valueFrom="0"
         android:valueTo="300"
         app:haloColor="@color/peach50"
+        app:labelBehavior="gone"
         app:labelStyle="@null"
         app:minSeparation="10dp"
         app:thumbColor="@color/peach300"
@@ -233,7 +232,6 @@
         app:trackColorActive="@color/green700"
         app:trackColorInactive="@color/green50"
         app:trackHeight="7dp"
-        app:labelBehavior="gone"
         app:values="@array/range_slider"
         tools:ignore="SpeakableTextPresentCheck" />
 
@@ -250,7 +248,7 @@
             android:layout_weight="1">
 
             <TextView
-                android:id="@+id/priceFrom"
+                android:id="@+id/priceFrom_Filter"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/edittext_layout"
@@ -280,7 +278,7 @@
             android:layout_weight="1">
 
             <TextView
-                android:id="@+id/priceTo"
+                android:id="@+id/priceTo_Filter"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/edittext_layout"
@@ -315,7 +313,7 @@
         android:textSize="16sp" />
 
     <RadioGroup
-        android:id="@+id/orderGroup"
+        android:id="@+id/orderGroup_Filter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -323,7 +321,7 @@
         android:orientation="vertical">
 
         <RadioButton
-            android:id="@+id/toTime"
+            android:id="@+id/toTime_Filter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:checked="true"
@@ -332,7 +330,7 @@
             app:buttonTint="@color/green500" />
 
         <RadioButton
-            android:id="@+id/fromTime"
+            android:id="@+id/fromTime_Filter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_medium"
@@ -340,7 +338,7 @@
             app:buttonTint="@color/green500" />
 
         <RadioButton
-            android:id="@+id/price_filter"
+            android:id="@+id/price_Filter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_medium"
@@ -348,7 +346,7 @@
             app:buttonTint="@color/green500" />
 
         <RadioButton
-            android:id="@+id/lFare"
+            android:id="@+id/lFare_Filter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_medium"
@@ -356,7 +354,7 @@
             app:buttonTint="@color/green500" />
 
         <RadioButton
-            android:id="@+id/duration"
+            android:id="@+id/duration_Filter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_medium"
@@ -390,5 +388,7 @@
             android:layout_marginEnd="15dp"
             android:layout_weight="1"
             android:text="Done" />
+
     </LinearLayout>
+
 </LinearLayout>

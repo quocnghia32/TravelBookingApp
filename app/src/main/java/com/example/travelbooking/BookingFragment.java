@@ -1,6 +1,5 @@
 package com.example.travelbooking;
 
-import android.media.Image;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 public class BookingFragment extends Fragment {
     @Override
@@ -23,16 +21,16 @@ public class BookingFragment extends Fragment {
 
         // Set onClickListeners for each ImageButton
         transport.setOnClickListener(v -> {
-            ((MainActivity) getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new TransportBookingFragment()).addToBackStack(null).commit();
+            ((MainActivity) getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer_Main, new TransportBookingFragment()).addToBackStack(null).commit();
         });
         hotel.setOnClickListener(v -> {
-            ((MainActivity) getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new NotAvailableFragment()).addToBackStack(null).commit();
+            ((MainActivity) getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer_Main, new NotAvailableFragment()).addToBackStack(null).commit();
         });
         event.setOnClickListener(v -> {
-            ((MainActivity) getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new NotAvailableFragment()).addToBackStack(null).commit();
+            ((MainActivity) getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer_Main, new NotAvailableFragment()).addToBackStack(null).commit();
         });
         trip.setOnClickListener(v -> {
-            ((MainActivity) getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new NotAvailableFragment()).addToBackStack(null).commit();
+            ((MainActivity) getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer_Main, new NotAvailableFragment()).addToBackStack(null).commit();
         });
     }
 

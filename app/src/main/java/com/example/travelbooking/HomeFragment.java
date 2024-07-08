@@ -2,13 +2,11 @@ package com.example.travelbooking;
 
 import android.os.Bundle;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -29,7 +27,7 @@ public class HomeFragment extends Fragment {
         ImageButton hotelButton = view.findViewById(R.id.hotel_button);
         ImageButton eventButton = view.findViewById(R.id.event_button);
         ImageButton tripButton = view.findViewById(R.id.trips_button);
-        bottomNavigationView = (BottomNavigationView) ((MainActivity) getActivity()).findViewById(R.id.bottomNavigationView);
+        bottomNavigationView = (BottomNavigationView) ((MainActivity) getActivity()).findViewById(R.id.bottomNavigationView_Main);
 
         // Set an OnClickListener on the button
         searchButton.setOnClickListener(new View.OnClickListener() {
@@ -41,7 +39,7 @@ public class HomeFragment extends Fragment {
         });
         transportButton.setOnClickListener(v -> {
             bottomNavigationView.setSelectedItemId(R.id.BookingB);
-            ((MainActivity) getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new TransportBookingFragment()).addToBackStack(null).commit();
+            ((MainActivity) getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer_Main, new TransportBookingFragment()).addToBackStack(null).commit();
         });
         hotelButton.setOnClickListener(v -> {
             setNoneFragment();
@@ -56,6 +54,6 @@ public class HomeFragment extends Fragment {
     }
     private void setNoneFragment() {
         bottomNavigationView.setSelectedItemId(R.id.BookingB);
-        ((MainActivity) getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new NotAvailableFragment()).addToBackStack(null).commit();
+        ((MainActivity) getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer_Main, new NotAvailableFragment()).addToBackStack(null).commit();
     }
 }

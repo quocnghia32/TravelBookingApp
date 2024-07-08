@@ -9,7 +9,7 @@
     tools:ignore="hardcodedText">
 
     <LinearLayout
-        android:id="@+id/textWelcome"
+        android:id="@+id/textWelcome_Login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">

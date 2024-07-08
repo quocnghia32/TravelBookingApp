@@ -10,17 +10,17 @@
     tools:ignore="HardcodedText">
 
     <FrameLayout
-        android:id="@+id/fragmentContainer"
+        android:id="@+id/fragmentContainer_Startup"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/startButton"
+        app:layout_constraintBottom_toTopOf="@+id/startButton_Startup"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/startButton"
+        android:id="@+id/startButton_Startup"
         style="@style/buttonStyle"
         android:layout_width="match_parent"
         android:layout_margin="30dp"

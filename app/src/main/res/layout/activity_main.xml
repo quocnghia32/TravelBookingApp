@@ -8,44 +8,44 @@
     tools:context=".MainActivity">
 
     <FrameLayout
-        android:id="@+id/fragmentContainer"
+        android:id="@+id/fragmentContainer_Main"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/cardBottom"
+        app:layout_constraintBottom_toTopOf="@+id/cardBottom_Main"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
     </FrameLayout>
+
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardBottom"
+        android:id="@+id/cardBottom_Main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:cardCornerRadius="30dp"
-        app:cardElevation="10dp"
-        app:cardBackgroundColor="@color/white"
-        android:translationZ="15dp"
         android:layout_marginHorizontal="10dp"
         android:layout_marginBottom="5dp"
-        >
+        android:translationZ="15dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
         <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottomNavigationView"
+            android:id="@+id/bottomNavigationView_Main"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:itemIconSize="40dp"
             android:layout_marginBottom="-30dp"
-            app:menu="@menu/bottom_menu"
-            app:itemRippleColor="@color/peach50"
+            android:foregroundTint="@color/white"
+            app:background="@color/white"
             app:backgroundTint="@color/white"
             app:itemBackground="@color/white"
-            app:background="@color/white"
-            android:foregroundTint="@color/white"
+            app:itemIconSize="40dp"
             app:itemIconTint="@color/item_bottomnav"
+            app:itemRippleColor="@color/peach50"
             app:itemTextColor="@color/item_bottomnav"
-            />
+            app:menu="@menu/bottom_menu" />
     </androidx.cardview.widget.CardView>
 
 

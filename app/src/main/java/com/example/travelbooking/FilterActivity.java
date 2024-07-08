@@ -37,17 +37,17 @@ public class FilterActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        rangeSlider = findViewById(R.id.priceSlider);
-        priceFrom = findViewById(R.id.priceFrom);
-        priceTo = findViewById(R.id.priceTo);
+        rangeSlider = findViewById(R.id.priceSlider_Filter);
+        priceFrom = findViewById(R.id.priceFrom_Filter);
+        priceTo = findViewById(R.id.priceTo_Filter);
         applyFilter = findViewById(R.id.applyFilter);
         resetFilter = findViewById(R.id.resetFilter);
-        priceButton = findViewById(R.id.price_filter);
-        AM12 = findViewById(R.id.AM12);
-        AM06 = findViewById(R.id.AM06);
-        PM06 = findViewById(R.id.PM06);
-        PM12 = findViewById(R.id.PM12);
-        backButton = findViewById(R.id.back_button_flights);
+        priceButton = findViewById(R.id.price_Filter);
+        AM12 = findViewById(R.id.AM12_Filter);
+        AM06 = findViewById(R.id.AM06_Filter);
+        PM06 = findViewById(R.id.PM06_Filter);
+        PM12 = findViewById(R.id.PM12_Filter);
+        backButton = findViewById(R.id.back_button_Filter);
 
         priceFrom.setText("$" + rangeSlider.getValues().get(0).intValue());
         priceTo.setText("$" + rangeSlider.getValues().get(1).intValue());

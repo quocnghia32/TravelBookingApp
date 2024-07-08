@@ -10,7 +10,7 @@
     tools:ignore="HardcodedText">
 
     <LinearLayout
-        android:id="@+id/textWelcome"
+        android:id="@+id/textWelcome_Login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -20,7 +20,7 @@
         android:orientation="vertical">
 
         <ImageButton
-            android:id="@+id/back_button"
+            android:id="@+id/back_button_Login"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_gravity="start"
@@ -49,10 +49,10 @@
     </LinearLayout>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/card_view"
+        android:id="@+id/card_view_Login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/textWelcome"
+        android:layout_below="@id/textWelcome_Login"
         android:layout_marginBottom="-20dp"
         android:backgroundTint="@color/screen_background"
         app:cardCornerRadius="38dp">
@@ -70,13 +70,13 @@
                 android:textColorHint="@color/ui_gray">
 
                 <EditText
-                    android:id="@+id/username"
+                    android:id="@+id/usernameText_Login"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:background="@drawable/edittext_layout"
                     android:gravity="center_vertical"
-                    android:hint="Email"
-                    android:inputType="textEmailAddress"
+                    android:hint="Username"
+                    android:inputType="text"
                     android:textColor="@color/text_secondary"
                     android:textColorHint="@color/ui_gray" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -91,7 +91,7 @@
                 app:passwordToggleTint="@color/black">
 
                 <EditText
-                    android:id="@+id/password"
+                    android:id="@+id/passwordText_Login"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:background="@drawable/edittext_layout"
@@ -103,7 +103,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
-                android:id="@+id/login_button"
+                android:id="@+id/signin_Login"
                 style="@style/buttonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
@@ -119,7 +119,7 @@
                 android:layout_marginTop="10dp">
 
                 <TextView
-                    android:id="@+id/textView2"
+                    android:id="@+id/newText_Login"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -129,11 +129,10 @@
 
 
                 <TextView
-                    android:id="@+id/textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
-                    android:layout_toEndOf="@+id/textView2"
+                    android:layout_toEndOf="@+id/newText_Login"
                     android:text="Sign Up"
                     android:textColor="@color/green700"
                     android:textSize="20sp"
@@ -182,9 +181,7 @@
                     android:layout_weight="1"
                     android:background="@color/ui_gray" />
 
-
             </LinearLayout>
-
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -210,14 +207,10 @@
                     android:layout_margin="12dp"
                     android:background="@drawable/apple_login" />
 
-
             </LinearLayout>
-
 
         </LinearLayout>
 
-
     </androidx.cardview.widget.CardView>
-
 
 </RelativeLayout>

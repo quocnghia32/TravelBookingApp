@@ -1,7 +1,6 @@
 package com.example.travelbooking;
 
 import android.content.Intent;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -55,7 +54,7 @@ public class AccountFragment extends Fragment {
 
         // Set the onClickListener for each TextView
         information.setOnClickListener(v -> {
-            ((MainActivity) getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new UserInformationFragment()).addToBackStack(null).commit();
+            ((MainActivity) getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer_Main, new UserInformationFragment()).addToBackStack(null).commit();
         });
         payment.setOnClickListener(v -> {
             Toast.makeText(getContext(), "This function will be developed", Toast.LENGTH_SHORT).show();
