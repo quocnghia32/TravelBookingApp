@@ -17,7 +17,7 @@
             android:layout_height="match_parent"
             android:fontFamily="@font/poppins_bold"
             android:gravity="center"
-            android:text="Personal Information"
+            android:text="Sign Up Information"
             android:textSize="20sp" />
 
         <ImageButton
@@ -71,7 +71,7 @@
             android:fontFamily="@font/poppins"
             android:gravity="center_vertical"
             android:hint="Password"
-            android:inputType="text"
+            android:inputType="textPassword"
             android:text=""
             android:textColor="@color/text_primary"
             android:textColorHint="@color/ui_gray"

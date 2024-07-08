@@ -29,14 +29,8 @@ public class WelcomeActivity extends AppCompatActivity {
             startActivity(i);
         });
         registerButton.setOnClickListener(v -> {
-            MyDatabaseHelper db = new MyDatabaseHelper(this);
-            db.deleteAllData();
-
-
-
-
-
-
+            Intent i = new Intent(WelcomeActivity.this, SignupActivity.class);
+            startActivity(i);
         });
 
     }

@@ -40,6 +40,8 @@ public class TransportFlightsActivity extends AppCompatActivity {
     int lowPrice = 0, highPrice = 300;
     int lowTime = 0, highTime = 24;
     boolean isSortingOnPrice = false;
+    String classType;
+    int numAdults;
 
 
 
@@ -53,6 +55,7 @@ public class TransportFlightsActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
         Intent intent = getIntent();
         year = intent.getIntExtra("fromDateYear", 0);
         month = intent.getIntExtra("fromDateMonth", 0) + 1;
@@ -65,6 +68,9 @@ public class TransportFlightsActivity extends AppCompatActivity {
         toFull = destLocation.substring(0, destLocation.indexOf("(") - 1);
         selectedDate = String.valueOf(day);
         if (day < 10) selectedDate = "0" + selectedDate;
+        classType = intent.getStringExtra("class");
+        numAdults = intent.getIntExtra("numAdults", 1);
+
 
         ImageButton back = findViewById(R.id.back_button_Flights);
         back.setOnClickListener(v -> finish());

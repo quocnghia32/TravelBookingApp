@@ -60,8 +60,18 @@ public class FlightAdapter extends
                 Toast.makeText(mContext, "Flight Selected is " + viewHolder.mNumber.getText(), Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(mContext, SelectSeatActivity.class);
                 intent.putExtra("flightID", viewHolder.mNumber.getText());
+                intent.putExtra("flightNumber", viewHolder.mNumber.getText());
+                intent.putExtra("from3Letters", viewHolder.m3lFrom.getText());
+                intent.putExtra("from", viewHolder.mFrom.getText());
+                intent.putExtra("to3Letters", viewHolder.m3lTo.getText());
+                intent.putExtra("to", viewHolder.mTo.getText());
+                intent.putExtra("date", viewHolder.mDate.getText());
+                intent.putExtra("time", viewHolder.mTime.getText());
+                intent.putExtra("price", viewHolder.mPrice.getText());
+                String classType = ((TransportFlightsActivity) mContext).getIntent().getStringExtra("class");
+                intent.putExtra("class",classType);
+                intent.putExtra("numAdults", ((TransportFlightsActivity) mContext).getIntent().getIntExtra("numAdults", 1));
                 mContext.startActivity(intent);
-
             }
         });
         return viewHolder;

@@ -17,6 +17,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -34,6 +35,7 @@ public class TransportBookingFragment extends Fragment {
     RadioGroup classGroup;
     String[] destinations;
     AutoCompleteTextView autoCompleteTextView, autoCompleteTextView2;
+    EditText numAdults;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -62,6 +64,7 @@ public class TransportBookingFragment extends Fragment {
         ecoClass = getView().findViewById(R.id.economy_TransBooking);
         busClass = getView().findViewById(R.id.business_TransBooking);
         classGroup = getView().findViewById(R.id.classGroup_TransBooking);
+        numAdults = getView().findViewById(R.id.adult_TransBooking);
 
         //Back Button
         back.setOnClickListener(v -> {
@@ -163,11 +166,11 @@ public class TransportBookingFragment extends Fragment {
             intent.putExtra("fromDateYear", yearFrom);
             intent.putExtra("fromDateMonth", monthFrom);
             intent.putExtra("fromDateDay", dayTo);
+            intent.putExtra("numAdults", Integer.valueOf(numAdults.getText().toString()));
             //put string for class
             int selectedId = classGroup.getCheckedRadioButtonId();
             RadioButton selectedClass = getView().findViewById(selectedId);
             intent.putExtra("class", selectedClass.getText().toString());
-            Log.i("Class", selectedClass.getText().toString());
             startActivity(intent);
         });
 

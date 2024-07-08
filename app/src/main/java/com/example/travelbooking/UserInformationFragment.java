@@ -20,6 +20,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.github.dhaval2404.imagepicker.ImagePicker;
 
@@ -119,7 +120,12 @@ public class UserInformationFragment extends Fragment {
             ((MainActivity) getActivity()).user.setEmail(em);
             ((MainActivity) getActivity()).user.setImage(imageInByte);
 
-            ((MainActivity) getActivity()).db.updateData(fName, lName, ph, em, ((MainActivity) getActivity()).username,imageInByte);
+            boolean result = ((MainActivity) getActivity()).db.updateData(fName, lName, ph, em, ((MainActivity) getActivity()).username,imageInByte);
+            if (result){
+                Toast.makeText(getActivity(), "Update successfully", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(getActivity(), "Update failed", Toast.LENGTH_SHORT).show();
+            }
             ((MainActivity) getActivity()).getSupportFragmentManager().popBackStack();
         });
 

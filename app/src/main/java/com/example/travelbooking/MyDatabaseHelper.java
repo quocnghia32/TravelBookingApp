@@ -101,13 +101,7 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
         cv.put(COLUMN_PASSWORD, currentUser.getPassword());
         cv.put(COLUMN_IMAGE, currentUser.getImage());
         long result = db.insert(TABLE_NAME, null, cv);
-        if(result == -1){
-            Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
-            return false;
-        }else {
-            Toast.makeText(context, "Added Successfully!", Toast.LENGTH_SHORT).show();
-            return true;
-        }
+        return result != -1;
     }
     public boolean addFlight(Flight currentFlight) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -121,13 +115,7 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
         cv.put(COLUMN_FLIGHT_TIME, currentFlight.getFlightTime());
         cv.put(COLUMN_FLIGHT_PRICE, currentFlight.getFlightPrice());
         long result = db.insert(FLIGHT_TABLE_NAME, null, cv);
-        if(result == -1){
-            Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
-            return false;
-        }else {
-            Toast.makeText(context, "Added Successfully!", Toast.LENGTH_SHORT).show();
-            return true;
-        }
+        return result != -1;
     }
     public boolean addSeat(String username, String flight_id, String seat_number) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -136,13 +124,7 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
         cv.put(COLUMN_SEAT_FLIGHTID, flight_id);
         cv.put(COLUMN_SEAT_SEATNUMBER, seat_number);
         long result = db.insert(SEAT_TABLE_NAME, null, cv);
-        if(result == -1){
-            Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
-            return false;
-        }else {
-            Toast.makeText(context, "Added Successfully!", Toast.LENGTH_SHORT).show();
-            return true;
-        }
+        return result != -1;
     }
     Cursor readAllFlights(){
         String query = "SELECT * FROM " + FLIGHT_TABLE_NAME;
@@ -201,7 +183,7 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
-    void updateData(String firstName, String lastName, String phone, String email, String username, byte[] image){
+    boolean updateData(String firstName, String lastName, String phone, String email, String username, byte[] image){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(COLUMN_FIRSTNAME, firstName);
@@ -210,11 +192,7 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
         cv.put(COLUMN_EMAIL, email);
         cv.put(COLUMN_IMAGE, image);
         long result = db.update(TABLE_NAME, cv, COLUMN_USERNAME+"=?", new String[]{username});
-        if(result == -1){
-            Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
-        }else {
-            Toast.makeText(context, "Updated Successfully!", Toast.LENGTH_SHORT).show();
-        }
+        return result != -1;
 
     }
 
